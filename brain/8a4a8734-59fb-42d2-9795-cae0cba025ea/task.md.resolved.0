@@ -1,0 +1,5 @@
+# Generating HTML for Top 200 Billionaires
+
+- [/] Write generator script to produce `index.html` with 200 entries and styling
+- [ ] Run the generator script
+- [ ] Serve `index.html` on localhost using python http.server

@@ -1,0 +1,36 @@
+# Security Incident Post-Mortem
+
+## Root Cause Analysis
+The account compromise was caused by a **hardcoded private key** in the [hardhat.config.ts](file:///c:/Users/Janus/cannatoken/cannatoken/hardhat.config.ts) file.
+
+## Attack Vector Breakdown
+*   **Hardcoded Secret**: The private key `7156703bbc...` was pasted directly into the code instead of using an environment variable.
+*   **Git Commit**: This file was committed to the git repository.
+*   **Exposure**: Once committed, the key became part of the permanent git history (`git log`), even if the file was later changed.
+*   **Automated Scanning**: Attackers use automated bots ("scrapers") that monitor public code repositories (GitHub, GitLab, etc.) and even scan for accidental uploads.
+*   **Regex Matching**: These bots look for patterns like `0x[a-fA-F0-9]{64}` (Private Keys) or `MNEMONIC`.
+*   **Instant Execution**: Upon detection, the bots automatically import the key and drain funds or take ownership of contracts within seconds.
+
+## The "Rugpull" Mechanism
+*   **Ownership**: The compromised wallet was the `initialOwner` of the contracts.
+*   **Supply Control**: The `CannaTokenV2` constructor minted the entire 200M supply to this wallet.
+*   **Liquidity Drain**: The attacker likely used their ownership to dump the tokens or withdraw liquidity if any was added.
+
+## Prevention & Remediation
+*   **Environment Variables**: Always use `.env` files for secrets.
+*   **GitIgnore**: Ensure `.env` is strictly ignored (Verified: DONE).
+*   **Secret Rotation**: Never reuse a compromised key.
+*   **History Scrubbing**: For a serious project, one would rewrite git history (BFG Repo-Cleaner), but since we are redeploying, we will start fresh.
+
+## Reporting the Incident
+1.  **BscScan**:
+    *   Go to the [Attacker's Address Page](https://bscscan.com/address/0x02941dd55724762e6570a4a8847a17fd363675d6).
+    *   Click the **"More"** button (three dots) near the top right of the profile.
+    *   Select **"Report/Flag Address"**.
+    *   Select **"Phishing/Hack"** and provide the transaction hash of the rugpull.
+
+2.  **Chainabuse**:
+    *   File a report at [chainabuse.com](https://www.chainabuse.com/). This is a global database used by many crypto companies.
+
+3.  **Binance Security**:
+    *   If you see the funds move to a Binance exchange wallet, contact Binance Support immediately with the transaction details.

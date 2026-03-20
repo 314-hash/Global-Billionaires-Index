@@ -1,0 +1,18 @@
+{
+    "name": "hpda-alert-bot",
+    "version": "1.0.0",
+    "description": "Alert bot for Heropanda/SOL pair on DexScreener",
+    "main": "hpda-watcher.js",
+    "type": "module",
+    "scripts": {
+      "start": "node hpda-watcher.js",
+      "dev": "node hpda-watcher.js"
+    },
+    "keywords": ["solana", "dexscreener", "telegram", "alert", "trading"],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+      "axios": "^1.6.2",
+      "node-telegram-bot-api": "^0.64.0"
+    }
+  }

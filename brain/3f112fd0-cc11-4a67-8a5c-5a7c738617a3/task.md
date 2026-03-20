@@ -1,0 +1,22 @@
+# Task Breakdown: Janus’ Crypto Sisig Landing Page
+
+- [x] Initial Project Files <!-- id: 1 -->
+    - [x] Create index.html, style.css, and main.js <!-- id: 2 -->
+- [x] Core Design System <!-- id: 3 -->
+    - [x] Define GSAP color variables in style.css <!-- id: 4 -->
+    - [x] Setup global CSS with 8px grid system <!-- id: 5 -->
+- [x] Cinematic Scroll Engine <!-- id: 6 -->
+    - [x] Implement frame preloader and canvas renderer <!-- id: 7 -->
+    - [x] Tie scroll position to frame index (1-300) <!-- id: 8 -->
+    - [x] Implement parallax layers (smoke, fire, coins) <!-- id: 9 -->
+- [x] UI Sections & Animations <!-- id: 10 -->
+    - [x] Section 1: Hero Impact (Frames 1-60) <!-- id: 11 -->
+    - [x] Section 2: Product Showcase (Frames 61-110) <!-- id: 12 -->
+    - [x] Section 3: Street Energy Mode (Frames 111-160) <!-- id: 13 -->
+    - [x] Section 4: Social Proof (Frames 161-210) <!-- id: 14 -->
+    - [x] Section 5: Brand Story (Frames 211-250) <!-- id: 15 -->
+    - [x] Section 6: Final CTA (Frames 251-300) <!-- id: 16 -->
+- [x] Optimization & Polish <!-- id: 17 -->
+    - [x] Mobile fallback (120 frames) <!-- id: 18 -->
+    - [x] Performance tuning (requestAnimationFrame, lazy loading) <!-- id: 19 -->
+    - [x] Final visual review against "Mega Prompt" requirements <!-- id: 20 -->

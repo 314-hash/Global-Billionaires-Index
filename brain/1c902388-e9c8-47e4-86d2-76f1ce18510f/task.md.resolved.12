@@ -1,0 +1,9 @@
+- [ ] Explore codebase to identify Hero component `[x]`
+- [ ] Locate "ezigif" frame assets (1-140) `[x]`
+- [ ] Create Implementation Plan `[x]`
+- [ ] Implement frame animation in Hero section `[x]`
+- [ ] Fix CSS @import order error `[x]`
+- [ ] Verify animation performance and responsiveness `[x]`
+- [ ] Start local development server `[x]`
+- [ ] Debug animation visibility `[/]`
+- [ ] Refactor animation to be background of Title `[/]`

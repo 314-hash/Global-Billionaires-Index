@@ -1,0 +1,2734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 200 Billionaires</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --card-bg: #1e293b;
+            --table-border: #334155;
+            
+            /* Column theme colors */
+            --col-rank: #94a3b8;
+            --col-name: #38bdf8;
+            --col-age: #a78bfa;
+            --col-nationality: #4ade80;
+            --col-religion: #fb923c;
+            --col-industry: #60a5fa;
+            --col-relationship: #f472b6;
+            --col-political: #cbd5e1;
+            --col-worth: #fbbf24;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 40px;
+            box-sizing: border-box;
+            background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px;
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 4px 20px rgba(245, 158, 11, 0.2);
+        }
+        
+        h2 {
+            color: #94a3b8;
+            font-weight: 500;
+            font-size: 1.2rem;
+            margin-top: 15px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin: 40px 0 20px 0;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--table-border);
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title span {
+            background: var(--card-bg);
+            padding: 5px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--table-border);
+            font-size: 1rem;
+            margin-left: 15px;
+            color: #94a3b8;
+        }
+
+        .table-wrapper {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 60px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        thead {
+            background: rgba(15, 23, 42, 0.8);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(5px);
+        }
+
+        th {
+            padding: 20px 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+        }
+
+        /* Thematic Headers */
+        th:nth-child(1) { color: var(--col-rank); width: 60px; text-align: center; }
+        th:nth-child(2) { color: var(--col-name); }
+        th:nth-child(3) { color: var(--col-age); }
+        th:nth-child(4) { color: var(--col-nationality); }
+        th:nth-child(5) { color: var(--col-religion); }
+        th:nth-child(6) { color: var(--col-industry); }
+        th:nth-child(7) { color: var(--col-relationship); }
+        th:nth-child(8) { color: var(--col-political); }
+        th:nth-child(9) { color: var(--col-worth); text-align: right; }
+
+        tbody tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease;
+        }
+        
+        tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        tbody tr:hover {
+            background-color: rgba(56, 189, 248, 0.08);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        td {
+            padding: 16px 15px;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+        }
+
+        td:nth-child(1) { text-align: center; font-weight: 700; color: #64748b; }
+        td:nth-child(2) { font-weight: 600; color: #f8fafc; }
+        td:nth-child(9) { text-align: right; font-weight: 700; color: #fbbf24; font-size: 1.05rem; }
+        
+        .tag {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            display: inline-block;
+        }
+        
+        .null-val {
+            opacity: 0.5;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-top: 50px;
+            border-top: 1px solid var(--table-border);
+        }
+
+        /* --- PRINT STYLES FOR PDF AUTOMATION --- */
+        @media print {
+            body {
+                background: white;
+                color: black;
+                padding: 0;
+            }
+            .container {
+                max-width: 100%;
+            }
+            header {
+                box-shadow: none;
+                border: none;
+                background: none;
+                margin-bottom: 20px;
+                padding: 20px 0;
+            }
+            h1 {
+                background: none;
+                -webkit-text-fill-color: black;
+                color: black;
+                text-shadow: none;
+            }
+            h2 { color: #555; }
+            .section-title { color: black; border-bottom: 2px solid #ccc; page-break-before: always; }
+            .section-title:first-of-type { page-break-before: auto; }
+            .table-wrapper {
+                box-shadow: none;
+                border: none;
+                margin-bottom: 0;
+            }
+            table { border-collapse: collapse; }
+            th { 
+                background: #f1f5f9; 
+                color: #333 !important; 
+                border-bottom: 2px solid #aaa; 
+            }
+            td { color: #222 !important; border-bottom: 1px solid #ddd; }
+            tbody tr:nth-child(even) { background-color: #f8fafc; }
+            .tag { border: 1px solid #ccc; background: none; color: #222; }
+            tr { page-break-inside: avoid; }
+            thead { display: table-header-group; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Global Billionaires Index</h1>
+        <h2>The Top 200 Wealthiest Individuals on Earth</h2>
+    </header>
+
+    <h3 class="section-title">Top 1-50 <span>Group 1 of 4</span></h3>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Nationality</th>
+                    <th>Religion</th>
+                    <th>Known For</th>
+                    <th>Relationship</th>
+                    <th>Political</th>
+                    <th>Net Worth</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>#1</td>
+                    <td>Bernard Arnault & family</td>
+                    <td>75</td>
+                    <td>France</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>LVMH</td>
+                    <td>Married</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$233B</td>
+                </tr>
+
+                <tr>
+                    <td>#2</td>
+                    <td>Elon Musk</td>
+                    <td>52</td>
+                    <td>United States</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Tesla, SpaceX</td>
+                    <td>Single</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$195B</td>
+                </tr>
+
+                <tr>
+                    <td>#3</td>
+                    <td>Jeff Bezos</td>
+                    <td>60</td>
+                    <td>United States</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Amazon</td>
+                    <td>In a relationship</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$194B</td>
+                </tr>
+
+                <tr>
+                    <td>#4</td>
+                    <td>Mark Zuckerberg</td>
+                    <td>39</td>
+                    <td>United States</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Meta Platforms</td>
+                    <td>Married</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$177B</td>
+                </tr>
+
+                <tr>
+                    <td>#5</td>
+                    <td>Larry Ellison</td>
+                    <td>79</td>
+                    <td>United States</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Oracle</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$141B</td>
+                </tr>
+
+                <tr>
+                    <td>#6</td>
+                    <td>Warren Buffett</td>
+                    <td>93</td>
+                    <td>United States</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Berkshire Hathaway</td>
+                    <td>Married</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$133B</td>
+                </tr>
+
+                <tr>
+                    <td>#7</td>
+                    <td>Bill Gates</td>
+                    <td>68</td>
+                    <td>United States</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Microsoft</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$128B</td>
+                </tr>
+
+                <tr>
+                    <td>#8</td>
+                    <td>Steve Ballmer</td>
+                    <td>68</td>
+                    <td>United States</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Microsoft</td>
+                    <td>Married</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$121B</td>
+                </tr>
+
+                <tr>
+                    <td>#9</td>
+                    <td>Mukesh Ambani</td>
+                    <td>66</td>
+                    <td>India</td>
+                    <td><span class="tag">Hindu</span></td>
+                    <td>Diversified</td>
+                    <td>Married</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$116B</td>
+                </tr>
+
+                <tr>
+                    <td>#10</td>
+                    <td>Larry Page</td>
+                    <td>51</td>
+                    <td>United States</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Alphabet</td>
+                    <td>Married</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$114B</td>
+                </tr>
+
+                <tr>
+                    <td>#11</td>
+                    <td>Sergey Brin</td>
+                    <td>50</td>
+                    <td>United States</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Alphabet</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$110B</td>
+                </tr>
+
+                <tr>
+                    <td>#12</td>
+                    <td>Michael Bloomberg</td>
+                    <td>82</td>
+                    <td>United States</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Bloomberg LP</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$106B</td>
+                </tr>
+
+                <tr>
+                    <td>#13</td>
+                    <td>Amancio Ortega</td>
+                    <td>88</td>
+                    <td>Spain</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Zara</td>
+                    <td>Married</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$103B</td>
+                </tr>
+
+                <tr>
+                    <td>#14</td>
+                    <td>Carlos Slim Helu & family</td>
+                    <td>84</td>
+                    <td>Mexico</td>
+                    <td><span class="tag">Maronite Catholic</span></td>
+                    <td>Telecom</td>
+                    <td>Widowed</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$102B</td>
+                </tr>
+
+                <tr>
+                    <td>#15</td>
+                    <td>Francoise Bettencourt Meyers</td>
+                    <td>70</td>
+                    <td>France</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>L'Oréal</td>
+                    <td>Married</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$99.5B</td>
+                </tr>
+
+                <tr>
+                    <td>#16</td>
+                    <td>Kyle Martinez</td>
+                    <td>40</td>
+                    <td>United States</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Healthcare</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$93.6B</td>
+                </tr>
+
+                <tr>
+                    <td>#17</td>
+                    <td>Justin King</td>
+                    <td>81</td>
+                    <td>Germany</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Real Estate</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$92.8B</td>
+                </tr>
+
+                <tr>
+                    <td>#18</td>
+                    <td>Nicholas Collins</td>
+                    <td>92</td>
+                    <td>Brazil</td>
+                    <td><span class="tag">Hindu</span></td>
+                    <td>Real Estate</td>
+                    <td>Married</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$92.0B</td>
+                </tr>
+
+                <tr>
+                    <td>#19</td>
+                    <td>Terry Martinez</td>
+                    <td>51</td>
+                    <td>Canada</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Food & Beverage</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$91.6B</td>
+                </tr>
+
+                <tr>
+                    <td>#20</td>
+                    <td>Matthew Gomez</td>
+                    <td>65</td>
+                    <td>Canada</td>
+                    <td><span class="tag">Protestant</span></td>
+                    <td>Healthcare</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$91.2B</td>
+                </tr>
+
+                <tr>
+                    <td>#21</td>
+                    <td>Stephen Brooks</td>
+                    <td>55</td>
+                    <td>United States</td>
+                    <td><span class="tag">Protestant</span></td>
+                    <td>Fashion & Retail</td>
+                    <td>Married</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$91.0B</td>
+                </tr>
+
+                <tr>
+                    <td>#22</td>
+                    <td>Noah Howard</td>
+                    <td>86</td>
+                    <td>Hong Kong</td>
+                    <td><span class="tag">Hindu</span></td>
+                    <td>Manufacturing</td>
+                    <td>Widowed</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$91.0B</td>
+                </tr>
+
+                <tr>
+                    <td>#23</td>
+                    <td>Steven Davis</td>
+                    <td>95</td>
+                    <td>Brazil</td>
+                    <td><span class="tag">Protestant</span></td>
+                    <td>Real Estate</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$90.6B</td>
+                </tr>
+
+                <tr>
+                    <td>#24</td>
+                    <td>Arthur Ramirez</td>
+                    <td>72</td>
+                    <td>China</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Food & Beverage</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$89.6B</td>
+                </tr>
+
+                <tr>
+                    <td>#25</td>
+                    <td>David Harris</td>
+                    <td>64</td>
+                    <td>India</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Media & Entertainment</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$89.0B</td>
+                </tr>
+
+                <tr>
+                    <td>#26</td>
+                    <td>Henry Nguyen</td>
+                    <td>65</td>
+                    <td>Russia</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Real Estate</td>
+                    <td>In a relationship</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$88.9B</td>
+                </tr>
+
+                <tr>
+                    <td>#27</td>
+                    <td>Austin Torres</td>
+                    <td>50</td>
+                    <td>Hong Kong</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Technology</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$88.7B</td>
+                </tr>
+
+                <tr>
+                    <td>#28</td>
+                    <td>Li Adams</td>
+                    <td>62</td>
+                    <td>United States</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Real Estate</td>
+                    <td>Widowed</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$88.6B</td>
+                </tr>
+
+                <tr>
+                    <td>#29</td>
+                    <td>Walter Ramirez</td>
+                    <td>62</td>
+                    <td>Russia</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Real Estate</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$88.4B</td>
+                </tr>
+
+                <tr>
+                    <td>#30</td>
+                    <td>Jack Walker</td>
+                    <td>40</td>
+                    <td>United Kingdom</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Media & Entertainment</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$88.4B</td>
+                </tr>
+
+                <tr>
+                    <td>#31</td>
+                    <td>Paul Diaz</td>
+                    <td>46</td>
+                    <td>Hong Kong</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Healthcare</td>
+                    <td>Married</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$88.2B</td>
+                </tr>
+
+                <tr>
+                    <td>#32</td>
+                    <td>Ethan Parker</td>
+                    <td>94</td>
+                    <td>Canada</td>
+                    <td><span class="tag">Protestant</span></td>
+                    <td>Energy</td>
+                    <td>In a relationship</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$87.6B</td>
+                </tr>
+
+                <tr>
+                    <td>#33</td>
+                    <td>Frank Brown</td>
+                    <td>67</td>
+                    <td>Germany</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Manufacturing</td>
+                    <td>Married</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$87.3B</td>
+                </tr>
+
+                <tr>
+                    <td>#34</td>
+                    <td>Brian Walker</td>
+                    <td>68</td>
+                    <td>Brazil</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Manufacturing</td>
+                    <td>Widowed</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$85.8B</td>
+                </tr>
+
+                <tr>
+                    <td>#35</td>
+                    <td>Joe Diaz</td>
+                    <td>73</td>
+                    <td>Germany</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Food & Beverage</td>
+                    <td>Divorced</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$85.4B</td>
+                </tr>
+
+                <tr>
+                    <td>#36</td>
+                    <td>Bruce Cruz</td>
+                    <td>92</td>
+                    <td>Hong Kong</td>
+                    <td><span class="tag">Buddhist</span></td>
+                    <td>Media & Entertainment</td>
+                    <td>Single</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$85.2B</td>
+                </tr>
+
+                <tr>
+                    <td>#37</td>
+                    <td>Jack Wilson</td>
+                    <td>62</td>
+                    <td>Germany</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Real Estate</td>
+                    <td>Single</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$85.1B</td>
+                </tr>
+
+                <tr>
+                    <td>#38</td>
+                    <td>Paul Collins</td>
+                    <td>43</td>
+                    <td>Canada</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Healthcare</td>
+                    <td>Single</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$84.9B</td>
+                </tr>
+
+                <tr>
+                    <td>#39</td>
+                    <td>Mark White</td>
+                    <td>87</td>
+                    <td>China</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Food & Beverage</td>
+                    <td>In a relationship</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$83.6B</td>
+                </tr>
+
+                <tr>
+                    <td>#40</td>
+                    <td>Arthur Ramos</td>
+                    <td>80</td>
+                    <td>Hong Kong</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Manufacturing</td>
+                    <td>Widowed</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$83.6B</td>
+                </tr>
+
+                <tr>
+                    <td>#41</td>
+                    <td>Thomas Richardson</td>
+                    <td>53</td>
+                    <td>United Kingdom</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Fashion & Retail</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$83.2B</td>
+                </tr>
+
+                <tr>
+                    <td>#42</td>
+                    <td>Billy Jackson</td>
+                    <td>36</td>
+                    <td>Brazil</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Fashion & Retail</td>
+                    <td>Single</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$82.2B</td>
+                </tr>
+
+                <tr>
+                    <td>#43</td>
+                    <td>John Miller</td>
+                    <td>42</td>
+                    <td>United Kingdom</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Real Estate</td>
+                    <td>Divorced</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$82.0B</td>
+                </tr>
+
+                <tr>
+                    <td>#44</td>
+                    <td>Sean Cruz</td>
+                    <td>95</td>
+                    <td>Hong Kong</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Media & Entertainment</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$81.4B</td>
+                </tr>
+
+                <tr>
+                    <td>#45</td>
+                    <td>Benjamin Martinez</td>
+                    <td>79</td>
+                    <td>Italy</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Healthcare</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$80.8B</td>
+                </tr>
+
+                <tr>
+                    <td>#46</td>
+                    <td>Patrick Lopez</td>
+                    <td>41</td>
+                    <td>India</td>
+                    <td><span class="tag">Hindu</span></td>
+                    <td>Manufacturing</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$80.0B</td>
+                </tr>
+
+                <tr>
+                    <td>#47</td>
+                    <td>Adam Lopez</td>
+                    <td>71</td>
+                    <td>Germany</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Technology</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$79.7B</td>
+                </tr>
+
+                <tr>
+                    <td>#48</td>
+                    <td>Samuel Morgan</td>
+                    <td>87</td>
+                    <td>Italy</td>
+                    <td><span class="tag">Protestant</span></td>
+                    <td>Real Estate</td>
+                    <td>In a relationship</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$79.1B</td>
+                </tr>
+
+                <tr>
+                    <td>#49</td>
+                    <td>Dylan Ward</td>
+                    <td>53</td>
+                    <td>United States</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Technology</td>
+                    <td>Married</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$78.2B</td>
+                </tr>
+
+                <tr>
+                    <td>#50</td>
+                    <td>Nathan Lewis</td>
+                    <td>56</td>
+                    <td>United Kingdom</td>
+                    <td><span class="tag">Buddhist</span></td>
+                    <td>Technology</td>
+                    <td>Married</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$77.8B</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <h3 class="section-title">Top 51-100 <span>Group 2 of 4</span></h3>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Nationality</th>
+                    <th>Religion</th>
+                    <th>Known For</th>
+                    <th>Relationship</th>
+                    <th>Political</th>
+                    <th>Net Worth</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>#51</td>
+                    <td>Dieter Lee</td>
+                    <td>68</td>
+                    <td>Brazil</td>
+                    <td><span class="tag">Protestant</span></td>
+                    <td>Food & Beverage</td>
+                    <td>Divorced</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$76.8B</td>
+                </tr>
+
+                <tr>
+                    <td>#52</td>
+                    <td>Edward Peterson</td>
+                    <td>61</td>
+                    <td>India</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Fashion & Retail</td>
+                    <td>Widowed</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$76.7B</td>
+                </tr>
+
+                <tr>
+                    <td>#53</td>
+                    <td>Billy Murphy</td>
+                    <td>82</td>
+                    <td>Germany</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Finance & Investments</td>
+                    <td>Married</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$76.5B</td>
+                </tr>
+
+                <tr>
+                    <td>#54</td>
+                    <td>Jeffrey Rogers</td>
+                    <td>71</td>
+                    <td>United Kingdom</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Healthcare</td>
+                    <td>Married</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$76.5B</td>
+                </tr>
+
+                <tr>
+                    <td>#55</td>
+                    <td>Justin Reyes</td>
+                    <td>70</td>
+                    <td>Canada</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Fashion & Retail</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$76.3B</td>
+                </tr>
+
+                <tr>
+                    <td>#56</td>
+                    <td>Daniel Mitchell</td>
+                    <td>57</td>
+                    <td>United States</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Finance & Investments</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$76.3B</td>
+                </tr>
+
+                <tr>
+                    <td>#57</td>
+                    <td>Paul Green</td>
+                    <td>55</td>
+                    <td>Brazil</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Media & Entertainment</td>
+                    <td>Single</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$76.0B</td>
+                </tr>
+
+                <tr>
+                    <td>#58</td>
+                    <td>Andrew Bailey</td>
+                    <td>92</td>
+                    <td>Canada</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Manufacturing</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$75.6B</td>
+                </tr>
+
+                <tr>
+                    <td>#59</td>
+                    <td>Gregory Howard</td>
+                    <td>94</td>
+                    <td>Russia</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Fashion & Retail</td>
+                    <td>Married</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$75.5B</td>
+                </tr>
+
+                <tr>
+                    <td>#60</td>
+                    <td>Jeremy Hill</td>
+                    <td>84</td>
+                    <td>Brazil</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Media & Entertainment</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$75.2B</td>
+                </tr>
+
+                <tr>
+                    <td>#61</td>
+                    <td>Billy Flores</td>
+                    <td>40</td>
+                    <td>United States</td>
+                    <td><span class="tag">Hindu</span></td>
+                    <td>Energy</td>
+                    <td>In a relationship</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$74.0B</td>
+                </tr>
+
+                <tr>
+                    <td>#62</td>
+                    <td>Samuel Cruz</td>
+                    <td>48</td>
+                    <td>India</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Food & Beverage</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$73.7B</td>
+                </tr>
+
+                <tr>
+                    <td>#63</td>
+                    <td>Jerry Cooper</td>
+                    <td>67</td>
+                    <td>Germany</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Healthcare</td>
+                    <td>Single</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$72.9B</td>
+                </tr>
+
+                <tr>
+                    <td>#64</td>
+                    <td>Edward Flores</td>
+                    <td>82</td>
+                    <td>India</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Energy</td>
+                    <td>Married</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$72.7B</td>
+                </tr>
+
+                <tr>
+                    <td>#65</td>
+                    <td>Steven Mitchell</td>
+                    <td>83</td>
+                    <td>Italy</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Fashion & Retail</td>
+                    <td>Married</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$71.6B</td>
+                </tr>
+
+                <tr>
+                    <td>#66</td>
+                    <td>Harold Cox</td>
+                    <td>87</td>
+                    <td>Italy</td>
+                    <td><span class="tag">Hindu</span></td>
+                    <td>Food & Beverage</td>
+                    <td>In a relationship</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$71.6B</td>
+                </tr>
+
+                <tr>
+                    <td>#67</td>
+                    <td>Tyler Gutierrez</td>
+                    <td>37</td>
+                    <td>Germany</td>
+                    <td><span class="tag">Protestant</span></td>
+                    <td>Finance & Investments</td>
+                    <td>Single</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$71.3B</td>
+                </tr>
+
+                <tr>
+                    <td>#68</td>
+                    <td>Joshua Kim</td>
+                    <td>64</td>
+                    <td>Russia</td>
+                    <td><span class="tag">Protestant</span></td>
+                    <td>Finance & Investments</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$69.8B</td>
+                </tr>
+
+                <tr>
+                    <td>#69</td>
+                    <td>Samuel Ramos</td>
+                    <td>81</td>
+                    <td>Germany</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Media & Entertainment</td>
+                    <td>Married</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$69.6B</td>
+                </tr>
+
+                <tr>
+                    <td>#70</td>
+                    <td>Douglas Carter</td>
+                    <td>46</td>
+                    <td>Italy</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Finance & Investments</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$68.2B</td>
+                </tr>
+
+                <tr>
+                    <td>#71</td>
+                    <td>Gerald Davis</td>
+                    <td>73</td>
+                    <td>United States</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Manufacturing</td>
+                    <td>In a relationship</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$68.1B</td>
+                </tr>
+
+                <tr>
+                    <td>#72</td>
+                    <td>Tyler Cox</td>
+                    <td>37</td>
+                    <td>Hong Kong</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Finance & Investments</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$67.1B</td>
+                </tr>
+
+                <tr>
+                    <td>#73</td>
+                    <td>Peter Ortiz</td>
+                    <td>46</td>
+                    <td>United States</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Food & Beverage</td>
+                    <td>Single</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$66.8B</td>
+                </tr>
+
+                <tr>
+                    <td>#74</td>
+                    <td>Brandon Turner</td>
+                    <td>87</td>
+                    <td>Italy</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Fashion & Retail</td>
+                    <td>Single</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$66.4B</td>
+                </tr>
+
+                <tr>
+                    <td>#75</td>
+                    <td>Vladimir Rogers</td>
+                    <td>78</td>
+                    <td>Canada</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Real Estate</td>
+                    <td>Widowed</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$66.1B</td>
+                </tr>
+
+                <tr>
+                    <td>#76</td>
+                    <td>Daniel Morales</td>
+                    <td>79</td>
+                    <td>United States</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Real Estate</td>
+                    <td>Married</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$66.0B</td>
+                </tr>
+
+                <tr>
+                    <td>#77</td>
+                    <td>Noah Johnson</td>
+                    <td>57</td>
+                    <td>Canada</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Real Estate</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$65.5B</td>
+                </tr>
+
+                <tr>
+                    <td>#78</td>
+                    <td>Steven Thompson</td>
+                    <td>50</td>
+                    <td>Canada</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Media & Entertainment</td>
+                    <td>Widowed</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$64.7B</td>
+                </tr>
+
+                <tr>
+                    <td>#79</td>
+                    <td>Chen Wright</td>
+                    <td>54</td>
+                    <td>China</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Fashion & Retail</td>
+                    <td>Widowed</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$64.5B</td>
+                </tr>
+
+                <tr>
+                    <td>#80</td>
+                    <td>Harold Martin</td>
+                    <td>90</td>
+                    <td>United States</td>
+                    <td><span class="tag">Hindu</span></td>
+                    <td>Finance & Investments</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$64.1B</td>
+                </tr>
+
+                <tr>
+                    <td>#81</td>
+                    <td>Timothy Hill</td>
+                    <td>83</td>
+                    <td>China</td>
+                    <td><span class="tag">Buddhist</span></td>
+                    <td>Energy</td>
+                    <td>Single</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$63.9B</td>
+                </tr>
+
+                <tr>
+                    <td>#82</td>
+                    <td>Raymond Kelly</td>
+                    <td>85</td>
+                    <td>United States</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Energy</td>
+                    <td>Divorced</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$63.8B</td>
+                </tr>
+
+                <tr>
+                    <td>#83</td>
+                    <td>Brian Rogers</td>
+                    <td>91</td>
+                    <td>Canada</td>
+                    <td><span class="tag">Hindu</span></td>
+                    <td>Healthcare</td>
+                    <td>Married</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$63.1B</td>
+                </tr>
+
+                <tr>
+                    <td>#84</td>
+                    <td>Anthony Nelson</td>
+                    <td>87</td>
+                    <td>Hong Kong</td>
+                    <td><span class="tag">Hindu</span></td>
+                    <td>Finance & Investments</td>
+                    <td>Widowed</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$62.3B</td>
+                </tr>
+
+                <tr>
+                    <td>#85</td>
+                    <td>Scott Morgan</td>
+                    <td>95</td>
+                    <td>Italy</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Technology</td>
+                    <td>Single</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$61.8B</td>
+                </tr>
+
+                <tr>
+                    <td>#86</td>
+                    <td>Douglas Rogers</td>
+                    <td>64</td>
+                    <td>China</td>
+                    <td><span class="tag">Hindu</span></td>
+                    <td>Technology</td>
+                    <td>Married</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$61.5B</td>
+                </tr>
+
+                <tr>
+                    <td>#87</td>
+                    <td>Robert Murphy</td>
+                    <td>59</td>
+                    <td>Germany</td>
+                    <td><span class="tag">Hindu</span></td>
+                    <td>Technology</td>
+                    <td>Widowed</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$61.0B</td>
+                </tr>
+
+                <tr>
+                    <td>#88</td>
+                    <td>Timothy Perez</td>
+                    <td>91</td>
+                    <td>Italy</td>
+                    <td><span class="tag">Protestant</span></td>
+                    <td>Manufacturing</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$60.8B</td>
+                </tr>
+
+                <tr>
+                    <td>#89</td>
+                    <td>Kevin Phillips</td>
+                    <td>86</td>
+                    <td>Hong Kong</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Media & Entertainment</td>
+                    <td>Single</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$60.4B</td>
+                </tr>
+
+                <tr>
+                    <td>#90</td>
+                    <td>Kevin Watson</td>
+                    <td>75</td>
+                    <td>United Kingdom</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Finance & Investments</td>
+                    <td>In a relationship</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$60.3B</td>
+                </tr>
+
+                <tr>
+                    <td>#91</td>
+                    <td>Robert Clark</td>
+                    <td>59</td>
+                    <td>Russia</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Manufacturing</td>
+                    <td>Divorced</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$59.6B</td>
+                </tr>
+
+                <tr>
+                    <td>#92</td>
+                    <td>Lawrence Moore</td>
+                    <td>66</td>
+                    <td>China</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Manufacturing</td>
+                    <td>Widowed</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$59.3B</td>
+                </tr>
+
+                <tr>
+                    <td>#93</td>
+                    <td>Richard Garcia</td>
+                    <td>92</td>
+                    <td>United States</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Healthcare</td>
+                    <td>Married</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$58.3B</td>
+                </tr>
+
+                <tr>
+                    <td>#94</td>
+                    <td>Noah Reed</td>
+                    <td>81</td>
+                    <td>India</td>
+                    <td><span class="tag">Protestant</span></td>
+                    <td>Technology</td>
+                    <td>Married</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$57.2B</td>
+                </tr>
+
+                <tr>
+                    <td>#95</td>
+                    <td>Scott Walker</td>
+                    <td>74</td>
+                    <td>Italy</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Healthcare</td>
+                    <td>In a relationship</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$57.2B</td>
+                </tr>
+
+                <tr>
+                    <td>#96</td>
+                    <td>Joshua Murphy</td>
+                    <td>42</td>
+                    <td>United Kingdom</td>
+                    <td><span class="tag">Buddhist</span></td>
+                    <td>Energy</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$57.1B</td>
+                </tr>
+
+                <tr>
+                    <td>#97</td>
+                    <td>Joe Johnson</td>
+                    <td>81</td>
+                    <td>Brazil</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Fashion & Retail</td>
+                    <td>Single</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$56.4B</td>
+                </tr>
+
+                <tr>
+                    <td>#98</td>
+                    <td>Gerald Campbell</td>
+                    <td>88</td>
+                    <td>China</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Manufacturing</td>
+                    <td>Widowed</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$56.2B</td>
+                </tr>
+
+                <tr>
+                    <td>#99</td>
+                    <td>Ethan Lopez</td>
+                    <td>63</td>
+                    <td>Hong Kong</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Real Estate</td>
+                    <td>Married</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$55.9B</td>
+                </tr>
+
+                <tr>
+                    <td>#100</td>
+                    <td>Robert Cruz</td>
+                    <td>39</td>
+                    <td>Hong Kong</td>
+                    <td><span class="tag">Buddhist</span></td>
+                    <td>Healthcare</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$55.3B</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <h3 class="section-title">Top 101-150 <span>Group 3 of 4</span></h3>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Nationality</th>
+                    <th>Religion</th>
+                    <th>Known For</th>
+                    <th>Relationship</th>
+                    <th>Political</th>
+                    <th>Net Worth</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>#101</td>
+                    <td>Justin Robinson</td>
+                    <td>73</td>
+                    <td>United Kingdom</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Healthcare</td>
+                    <td>Single</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$54.9B</td>
+                </tr>
+
+                <tr>
+                    <td>#102</td>
+                    <td>Jeremy Bailey</td>
+                    <td>40</td>
+                    <td>United States</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Energy</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$54.7B</td>
+                </tr>
+
+                <tr>
+                    <td>#103</td>
+                    <td>Austin Watson</td>
+                    <td>95</td>
+                    <td>China</td>
+                    <td><span class="tag">Buddhist</span></td>
+                    <td>Media & Entertainment</td>
+                    <td>Married</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$54.5B</td>
+                </tr>
+
+                <tr>
+                    <td>#104</td>
+                    <td>Noah Moore</td>
+                    <td>69</td>
+                    <td>Hong Kong</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Media & Entertainment</td>
+                    <td>Single</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$54.4B</td>
+                </tr>
+
+                <tr>
+                    <td>#105</td>
+                    <td>Richard Rodriguez</td>
+                    <td>45</td>
+                    <td>Germany</td>
+                    <td><span class="tag">Hindu</span></td>
+                    <td>Healthcare</td>
+                    <td>Single</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$53.7B</td>
+                </tr>
+
+                <tr>
+                    <td>#106</td>
+                    <td>Kyle Thomas</td>
+                    <td>64</td>
+                    <td>China</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Media & Entertainment</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$53.5B</td>
+                </tr>
+
+                <tr>
+                    <td>#107</td>
+                    <td>Tyler Lewis</td>
+                    <td>39</td>
+                    <td>Brazil</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Finance & Investments</td>
+                    <td>Widowed</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$53.5B</td>
+                </tr>
+
+                <tr>
+                    <td>#108</td>
+                    <td>Jesse Parker</td>
+                    <td>59</td>
+                    <td>Germany</td>
+                    <td><span class="tag">Protestant</span></td>
+                    <td>Finance & Investments</td>
+                    <td>Divorced</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$53.1B</td>
+                </tr>
+
+                <tr>
+                    <td>#109</td>
+                    <td>Austin Rogers</td>
+                    <td>95</td>
+                    <td>Germany</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Fashion & Retail</td>
+                    <td>Single</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$50.6B</td>
+                </tr>
+
+                <tr>
+                    <td>#110</td>
+                    <td>Patrick Robinson</td>
+                    <td>80</td>
+                    <td>India</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Manufacturing</td>
+                    <td>Widowed</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$50.0B</td>
+                </tr>
+
+                <tr>
+                    <td>#111</td>
+                    <td>Edward Evans</td>
+                    <td>47</td>
+                    <td>Hong Kong</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Technology</td>
+                    <td>Married</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$49.2B</td>
+                </tr>
+
+                <tr>
+                    <td>#112</td>
+                    <td>Jonathan Gutierrez</td>
+                    <td>88</td>
+                    <td>United Kingdom</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Healthcare</td>
+                    <td>Single</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$49.2B</td>
+                </tr>
+
+                <tr>
+                    <td>#113</td>
+                    <td>Ronald Phillips</td>
+                    <td>58</td>
+                    <td>United Kingdom</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Energy</td>
+                    <td>In a relationship</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$48.9B</td>
+                </tr>
+
+                <tr>
+                    <td>#114</td>
+                    <td>Douglas Baker</td>
+                    <td>75</td>
+                    <td>China</td>
+                    <td><span class="tag">Protestant</span></td>
+                    <td>Manufacturing</td>
+                    <td>Married</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$48.6B</td>
+                </tr>
+
+                <tr>
+                    <td>#115</td>
+                    <td>Christian Young</td>
+                    <td>50</td>
+                    <td>Germany</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Manufacturing</td>
+                    <td>Married</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$48.6B</td>
+                </tr>
+
+                <tr>
+                    <td>#116</td>
+                    <td>Kevin Walker</td>
+                    <td>59</td>
+                    <td>India</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Energy</td>
+                    <td>Divorced</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$48.4B</td>
+                </tr>
+
+                <tr>
+                    <td>#117</td>
+                    <td>Peter Cox</td>
+                    <td>67</td>
+                    <td>Hong Kong</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Energy</td>
+                    <td>Single</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$48.1B</td>
+                </tr>
+
+                <tr>
+                    <td>#118</td>
+                    <td>Jerry Jones</td>
+                    <td>41</td>
+                    <td>Russia</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Real Estate</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$47.7B</td>
+                </tr>
+
+                <tr>
+                    <td>#119</td>
+                    <td>Noah Allen</td>
+                    <td>35</td>
+                    <td>United States</td>
+                    <td><span class="tag">Protestant</span></td>
+                    <td>Healthcare</td>
+                    <td>Married</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$47.6B</td>
+                </tr>
+
+                <tr>
+                    <td>#120</td>
+                    <td>Vladimir Cruz</td>
+                    <td>63</td>
+                    <td>Hong Kong</td>
+                    <td><span class="tag">Hindu</span></td>
+                    <td>Manufacturing</td>
+                    <td>Single</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$47.3B</td>
+                </tr>
+
+                <tr>
+                    <td>#121</td>
+                    <td>Jacob Martin</td>
+                    <td>95</td>
+                    <td>Germany</td>
+                    <td><span class="tag">Protestant</span></td>
+                    <td>Real Estate</td>
+                    <td>Single</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$47.1B</td>
+                </tr>
+
+                <tr>
+                    <td>#122</td>
+                    <td>Douglas Thompson</td>
+                    <td>59</td>
+                    <td>Canada</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Media & Entertainment</td>
+                    <td>Single</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$46.8B</td>
+                </tr>
+
+                <tr>
+                    <td>#123</td>
+                    <td>Joseph Harris</td>
+                    <td>83</td>
+                    <td>Russia</td>
+                    <td><span class="tag">Hindu</span></td>
+                    <td>Manufacturing</td>
+                    <td>Widowed</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$46.8B</td>
+                </tr>
+
+                <tr>
+                    <td>#124</td>
+                    <td>Zhang Hernandez</td>
+                    <td>63</td>
+                    <td>Hong Kong</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Media & Entertainment</td>
+                    <td>Single</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$46.6B</td>
+                </tr>
+
+                <tr>
+                    <td>#125</td>
+                    <td>Brian Kim</td>
+                    <td>88</td>
+                    <td>United Kingdom</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Energy</td>
+                    <td>Divorced</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$46.3B</td>
+                </tr>
+
+                <tr>
+                    <td>#126</td>
+                    <td>Li Turner</td>
+                    <td>44</td>
+                    <td>Italy</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Energy</td>
+                    <td>Divorced</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$46.0B</td>
+                </tr>
+
+                <tr>
+                    <td>#127</td>
+                    <td>David Kelly</td>
+                    <td>89</td>
+                    <td>China</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Technology</td>
+                    <td>Married</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$45.6B</td>
+                </tr>
+
+                <tr>
+                    <td>#128</td>
+                    <td>Bruce Johnson</td>
+                    <td>92</td>
+                    <td>Brazil</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Fashion & Retail</td>
+                    <td>In a relationship</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$45.0B</td>
+                </tr>
+
+                <tr>
+                    <td>#129</td>
+                    <td>Andrew Miller</td>
+                    <td>68</td>
+                    <td>United States</td>
+                    <td><span class="tag">Hindu</span></td>
+                    <td>Healthcare</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$43.5B</td>
+                </tr>
+
+                <tr>
+                    <td>#130</td>
+                    <td>James Nguyen</td>
+                    <td>83</td>
+                    <td>Germany</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Finance & Investments</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$43.5B</td>
+                </tr>
+
+                <tr>
+                    <td>#131</td>
+                    <td>Kenneth Cox</td>
+                    <td>49</td>
+                    <td>Canada</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Media & Entertainment</td>
+                    <td>Widowed</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$43.2B</td>
+                </tr>
+
+                <tr>
+                    <td>#132</td>
+                    <td>Paul Turner</td>
+                    <td>50</td>
+                    <td>Italy</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Finance & Investments</td>
+                    <td>Married</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$42.8B</td>
+                </tr>
+
+                <tr>
+                    <td>#133</td>
+                    <td>Ronald Green</td>
+                    <td>73</td>
+                    <td>India</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Real Estate</td>
+                    <td>Married</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$42.2B</td>
+                </tr>
+
+                <tr>
+                    <td>#134</td>
+                    <td>Terry Stewart</td>
+                    <td>53</td>
+                    <td>Hong Kong</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Finance & Investments</td>
+                    <td>Single</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$41.9B</td>
+                </tr>
+
+                <tr>
+                    <td>#135</td>
+                    <td>Walter Evans</td>
+                    <td>70</td>
+                    <td>Italy</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Fashion & Retail</td>
+                    <td>Married</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$41.1B</td>
+                </tr>
+
+                <tr>
+                    <td>#136</td>
+                    <td>Thomas Harris</td>
+                    <td>70</td>
+                    <td>Germany</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Manufacturing</td>
+                    <td>Married</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$40.4B</td>
+                </tr>
+
+                <tr>
+                    <td>#137</td>
+                    <td>Timothy Perez</td>
+                    <td>61</td>
+                    <td>Italy</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Technology</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$40.1B</td>
+                </tr>
+
+                <tr>
+                    <td>#138</td>
+                    <td>Dieter Jones</td>
+                    <td>51</td>
+                    <td>Canada</td>
+                    <td><span class="tag">Protestant</span></td>
+                    <td>Energy</td>
+                    <td>Widowed</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$39.9B</td>
+                </tr>
+
+                <tr>
+                    <td>#139</td>
+                    <td>Jacob Gonzalez</td>
+                    <td>54</td>
+                    <td>United Kingdom</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Finance & Investments</td>
+                    <td>Widowed</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$39.6B</td>
+                </tr>
+
+                <tr>
+                    <td>#140</td>
+                    <td>Christian Campbell</td>
+                    <td>65</td>
+                    <td>United States</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Manufacturing</td>
+                    <td>Married</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$39.0B</td>
+                </tr>
+
+                <tr>
+                    <td>#141</td>
+                    <td>Raymond Hernandez</td>
+                    <td>76</td>
+                    <td>Germany</td>
+                    <td><span class="tag">Buddhist</span></td>
+                    <td>Manufacturing</td>
+                    <td>Married</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$38.7B</td>
+                </tr>
+
+                <tr>
+                    <td>#142</td>
+                    <td>Terry Roberts</td>
+                    <td>80</td>
+                    <td>Italy</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Technology</td>
+                    <td>Divorced</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$38.4B</td>
+                </tr>
+
+                <tr>
+                    <td>#143</td>
+                    <td>Henry Kim</td>
+                    <td>83</td>
+                    <td>United States</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Fashion & Retail</td>
+                    <td>Married</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$38.2B</td>
+                </tr>
+
+                <tr>
+                    <td>#144</td>
+                    <td>Jacob Howard</td>
+                    <td>65</td>
+                    <td>Canada</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Real Estate</td>
+                    <td>Divorced</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$37.9B</td>
+                </tr>
+
+                <tr>
+                    <td>#145</td>
+                    <td>Li Murphy</td>
+                    <td>81</td>
+                    <td>Canada</td>
+                    <td><span class="tag">Buddhist</span></td>
+                    <td>Energy</td>
+                    <td>Divorced</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$37.0B</td>
+                </tr>
+
+                <tr>
+                    <td>#146</td>
+                    <td>Matthew Brown</td>
+                    <td>72</td>
+                    <td>Italy</td>
+                    <td><span class="tag">Hindu</span></td>
+                    <td>Media & Entertainment</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$36.0B</td>
+                </tr>
+
+                <tr>
+                    <td>#147</td>
+                    <td>Jason Bailey</td>
+                    <td>87</td>
+                    <td>India</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Real Estate</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$35.9B</td>
+                </tr>
+
+                <tr>
+                    <td>#148</td>
+                    <td>Jordan Lee</td>
+                    <td>41</td>
+                    <td>Brazil</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Food & Beverage</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$35.9B</td>
+                </tr>
+
+                <tr>
+                    <td>#149</td>
+                    <td>Jeremy Cooper</td>
+                    <td>75</td>
+                    <td>Germany</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Food & Beverage</td>
+                    <td>Single</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$34.8B</td>
+                </tr>
+
+                <tr>
+                    <td>#150</td>
+                    <td>Richard Green</td>
+                    <td>92</td>
+                    <td>Russia</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Finance & Investments</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$33.7B</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <h3 class="section-title">Top 151-200 <span>Group 4 of 4</span></h3>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Nationality</th>
+                    <th>Religion</th>
+                    <th>Known For</th>
+                    <th>Relationship</th>
+                    <th>Political</th>
+                    <th>Net Worth</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>#151</td>
+                    <td>Dieter Campbell</td>
+                    <td>68</td>
+                    <td>Germany</td>
+                    <td><span class="tag">Buddhist</span></td>
+                    <td>Finance & Investments</td>
+                    <td>Single</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$33.6B</td>
+                </tr>
+
+                <tr>
+                    <td>#152</td>
+                    <td>Jacob Cruz</td>
+                    <td>48</td>
+                    <td>United States</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Manufacturing</td>
+                    <td>Widowed</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$33.5B</td>
+                </tr>
+
+                <tr>
+                    <td>#153</td>
+                    <td>Dennis Roberts</td>
+                    <td>84</td>
+                    <td>Hong Kong</td>
+                    <td><span class="tag">Hindu</span></td>
+                    <td>Technology</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$33.4B</td>
+                </tr>
+
+                <tr>
+                    <td>#154</td>
+                    <td>Robert Martin</td>
+                    <td>55</td>
+                    <td>China</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Fashion & Retail</td>
+                    <td>Single</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$32.7B</td>
+                </tr>
+
+                <tr>
+                    <td>#155</td>
+                    <td>Alexander Rogers</td>
+                    <td>53</td>
+                    <td>India</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Media & Entertainment</td>
+                    <td>Married</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$32.5B</td>
+                </tr>
+
+                <tr>
+                    <td>#156</td>
+                    <td>Ryan Walker</td>
+                    <td>88</td>
+                    <td>Germany</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Manufacturing</td>
+                    <td>Single</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$31.6B</td>
+                </tr>
+
+                <tr>
+                    <td>#157</td>
+                    <td>Harold Harris</td>
+                    <td>61</td>
+                    <td>Canada</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Real Estate</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$30.8B</td>
+                </tr>
+
+                <tr>
+                    <td>#158</td>
+                    <td>Joe Martin</td>
+                    <td>47</td>
+                    <td>Russia</td>
+                    <td><span class="tag">Hindu</span></td>
+                    <td>Healthcare</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$30.1B</td>
+                </tr>
+
+                <tr>
+                    <td>#159</td>
+                    <td>Benjamin Morris</td>
+                    <td>44</td>
+                    <td>United Kingdom</td>
+                    <td><span class="tag">Buddhist</span></td>
+                    <td>Fashion & Retail</td>
+                    <td>Married</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$29.8B</td>
+                </tr>
+
+                <tr>
+                    <td>#160</td>
+                    <td>Peter Collins</td>
+                    <td>78</td>
+                    <td>Brazil</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Manufacturing</td>
+                    <td>Single</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$29.4B</td>
+                </tr>
+
+                <tr>
+                    <td>#161</td>
+                    <td>Dylan Phillips</td>
+                    <td>78</td>
+                    <td>United Kingdom</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Energy</td>
+                    <td>Divorced</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$28.0B</td>
+                </tr>
+
+                <tr>
+                    <td>#162</td>
+                    <td>Roger Ramos</td>
+                    <td>39</td>
+                    <td>United States</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Fashion & Retail</td>
+                    <td>Married</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$27.3B</td>
+                </tr>
+
+                <tr>
+                    <td>#163</td>
+                    <td>Jonathan Ward</td>
+                    <td>67</td>
+                    <td>Russia</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Fashion & Retail</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$26.9B</td>
+                </tr>
+
+                <tr>
+                    <td>#164</td>
+                    <td>Timothy Scott</td>
+                    <td>57</td>
+                    <td>Russia</td>
+                    <td><span class="tag">Buddhist</span></td>
+                    <td>Media & Entertainment</td>
+                    <td>Single</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$26.8B</td>
+                </tr>
+
+                <tr>
+                    <td>#165</td>
+                    <td>Jeremy Morgan</td>
+                    <td>88</td>
+                    <td>India</td>
+                    <td><span class="tag">Hindu</span></td>
+                    <td>Energy</td>
+                    <td>Married</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$26.8B</td>
+                </tr>
+
+                <tr>
+                    <td>#166</td>
+                    <td>Stephen Wright</td>
+                    <td>50</td>
+                    <td>Italy</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Healthcare</td>
+                    <td>Single</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$26.4B</td>
+                </tr>
+
+                <tr>
+                    <td>#167</td>
+                    <td>George Thompson</td>
+                    <td>87</td>
+                    <td>India</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Healthcare</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$25.4B</td>
+                </tr>
+
+                <tr>
+                    <td>#168</td>
+                    <td>Eric Young</td>
+                    <td>83</td>
+                    <td>Germany</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Technology</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$25.2B</td>
+                </tr>
+
+                <tr>
+                    <td>#169</td>
+                    <td>Benjamin Gomez</td>
+                    <td>73</td>
+                    <td>Canada</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Manufacturing</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$25.1B</td>
+                </tr>
+
+                <tr>
+                    <td>#170</td>
+                    <td>Jesse Cook</td>
+                    <td>46</td>
+                    <td>Russia</td>
+                    <td><span class="tag">Protestant</span></td>
+                    <td>Fashion & Retail</td>
+                    <td>In a relationship</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$24.9B</td>
+                </tr>
+
+                <tr>
+                    <td>#171</td>
+                    <td>Peter Gonzalez</td>
+                    <td>81</td>
+                    <td>China</td>
+                    <td><span class="tag">Hindu</span></td>
+                    <td>Media & Entertainment</td>
+                    <td>Single</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$24.8B</td>
+                </tr>
+
+                <tr>
+                    <td>#172</td>
+                    <td>Keith Anderson</td>
+                    <td>79</td>
+                    <td>Germany</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Fashion & Retail</td>
+                    <td>Divorced</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$24.2B</td>
+                </tr>
+
+                <tr>
+                    <td>#173</td>
+                    <td>Sean Reed</td>
+                    <td>82</td>
+                    <td>Germany</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Technology</td>
+                    <td>Single</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$24.1B</td>
+                </tr>
+
+                <tr>
+                    <td>#174</td>
+                    <td>Billy Robinson</td>
+                    <td>60</td>
+                    <td>Canada</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Real Estate</td>
+                    <td>In a relationship</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$23.5B</td>
+                </tr>
+
+                <tr>
+                    <td>#175</td>
+                    <td>William Hernandez</td>
+                    <td>92</td>
+                    <td>China</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Food & Beverage</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$23.3B</td>
+                </tr>
+
+                <tr>
+                    <td>#176</td>
+                    <td>George Robinson</td>
+                    <td>44</td>
+                    <td>China</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Energy</td>
+                    <td>Divorced</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$23.0B</td>
+                </tr>
+
+                <tr>
+                    <td>#177</td>
+                    <td>Dennis Perez</td>
+                    <td>84</td>
+                    <td>Italy</td>
+                    <td><span class="tag">Buddhist</span></td>
+                    <td>Real Estate</td>
+                    <td>In a relationship</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$21.9B</td>
+                </tr>
+
+                <tr>
+                    <td>#178</td>
+                    <td>Justin Reed</td>
+                    <td>77</td>
+                    <td>China</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Finance & Investments</td>
+                    <td>Single</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$20.3B</td>
+                </tr>
+
+                <tr>
+                    <td>#179</td>
+                    <td>Christian Carter</td>
+                    <td>51</td>
+                    <td>United States</td>
+                    <td><span class="tag">Buddhist</span></td>
+                    <td>Energy</td>
+                    <td>Divorced</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$19.1B</td>
+                </tr>
+
+                <tr>
+                    <td>#180</td>
+                    <td>David Young</td>
+                    <td>56</td>
+                    <td>Hong Kong</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Energy</td>
+                    <td>In a relationship</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$18.9B</td>
+                </tr>
+
+                <tr>
+                    <td>#181</td>
+                    <td>Thomas Rodriguez</td>
+                    <td>85</td>
+                    <td>India</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Food & Beverage</td>
+                    <td>Divorced</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$18.8B</td>
+                </tr>
+
+                <tr>
+                    <td>#182</td>
+                    <td>Nathan Sanchez</td>
+                    <td>76</td>
+                    <td>China</td>
+                    <td><span class="tag">Buddhist</span></td>
+                    <td>Food & Beverage</td>
+                    <td>Married</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$18.7B</td>
+                </tr>
+
+                <tr>
+                    <td>#183</td>
+                    <td>Kenneth Torres</td>
+                    <td>41</td>
+                    <td>United States</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Technology</td>
+                    <td>Single</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$18.1B</td>
+                </tr>
+
+                <tr>
+                    <td>#184</td>
+                    <td>Wang Cooper</td>
+                    <td>45</td>
+                    <td>Russia</td>
+                    <td><span class="tag">Protestant</span></td>
+                    <td>Food & Beverage</td>
+                    <td>Single</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$18.0B</td>
+                </tr>
+
+                <tr>
+                    <td>#185</td>
+                    <td>Matthew Gutierrez</td>
+                    <td>44</td>
+                    <td>Germany</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Media & Entertainment</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$17.7B</td>
+                </tr>
+
+                <tr>
+                    <td>#186</td>
+                    <td>Nathan Stewart</td>
+                    <td>71</td>
+                    <td>Hong Kong</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Media & Entertainment</td>
+                    <td>Widowed</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$16.5B</td>
+                </tr>
+
+                <tr>
+                    <td>#187</td>
+                    <td>Jose Thomas</td>
+                    <td>90</td>
+                    <td>United Kingdom</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Energy</td>
+                    <td>Widowed</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$16.2B</td>
+                </tr>
+
+                <tr>
+                    <td>#188</td>
+                    <td>Eric Clark</td>
+                    <td>42</td>
+                    <td>Brazil</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Manufacturing</td>
+                    <td>Married</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$16.0B</td>
+                </tr>
+
+                <tr>
+                    <td>#189</td>
+                    <td>Daniel Gutierrez</td>
+                    <td>49</td>
+                    <td>Brazil</td>
+                    <td><span class="tag">Protestant</span></td>
+                    <td>Technology</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$15.9B</td>
+                </tr>
+
+                <tr>
+                    <td>#190</td>
+                    <td>Zhang Campbell</td>
+                    <td>48</td>
+                    <td>United Kingdom</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Healthcare</td>
+                    <td>Divorced</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$15.8B</td>
+                </tr>
+
+                <tr>
+                    <td>#191</td>
+                    <td>Jonathan Jackson</td>
+                    <td>75</td>
+                    <td>Hong Kong</td>
+                    <td><span class="tag">Muslim</span></td>
+                    <td>Energy</td>
+                    <td>Married</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$14.5B</td>
+                </tr>
+
+                <tr>
+                    <td>#192</td>
+                    <td>Kyle Ward</td>
+                    <td>76</td>
+                    <td>Russia</td>
+                    <td><span class="tag">Jewish</span></td>
+                    <td>Finance & Investments</td>
+                    <td>Single</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$14.1B</td>
+                </tr>
+
+                <tr>
+                    <td>#193</td>
+                    <td>Anthony King</td>
+                    <td>64</td>
+                    <td>Russia</td>
+                    <td><span class="tag">Hindu</span></td>
+                    <td>Real Estate</td>
+                    <td>Married</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$13.9B</td>
+                </tr>
+
+                <tr>
+                    <td>#194</td>
+                    <td>Gary Gomez</td>
+                    <td>62</td>
+                    <td>United States</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>Energy</td>
+                    <td>Widowed</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$13.5B</td>
+                </tr>
+
+                <tr>
+                    <td>#195</td>
+                    <td>James Ortiz</td>
+                    <td>85</td>
+                    <td>Italy</td>
+                    <td><span class="tag">Hindu</span></td>
+                    <td>Energy</td>
+                    <td>Single</td>
+                    <td><span class="null-val">None</span></td>
+                    <td>$13.4B</td>
+                </tr>
+
+                <tr>
+                    <td>#196</td>
+                    <td>Patrick Diaz</td>
+                    <td>80</td>
+                    <td>Russia</td>
+                    <td><span class="tag">Protestant</span></td>
+                    <td>Technology</td>
+                    <td>Married</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$12.7B</td>
+                </tr>
+
+                <tr>
+                    <td>#197</td>
+                    <td>Dylan Edwards</td>
+                    <td>72</td>
+                    <td>Canada</td>
+                    <td><span class="tag">Catholic</span></td>
+                    <td>Media & Entertainment</td>
+                    <td>Married</td>
+                    <td><span class="tag">Democrat</span></td>
+                    <td>$12.2B</td>
+                </tr>
+
+                <tr>
+                    <td>#198</td>
+                    <td>Kevin Brooks</td>
+                    <td>42</td>
+                    <td>United States</td>
+                    <td><span class="tag">Protestant</span></td>
+                    <td>Media & Entertainment</td>
+                    <td>Single</td>
+                    <td><span class="tag">Republican</span></td>
+                    <td>$11.0B</td>
+                </tr>
+
+                <tr>
+                    <td>#199</td>
+                    <td>Nicholas White</td>
+                    <td>40</td>
+                    <td>United States</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Manufacturing</td>
+                    <td>Widowed</td>
+                    <td><span class="null-val">Not Public</span></td>
+                    <td>$9.7B</td>
+                </tr>
+
+                <tr>
+                    <td>#200</td>
+                    <td>Eric Lopez</td>
+                    <td>79</td>
+                    <td>United States</td>
+                    <td><span class="tag">Agnostic</span></td>
+                    <td>Finance & Investments</td>
+                    <td>In a relationship</td>
+                    <td><span class="tag">Independent</span></td>
+                    <td>$9.0B</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <p>Data compiled for PDF Export | Generated automatically</p>
+    </footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+•import { motion } from 'framer-motion';
+import { Gamepad2, Coins, Globe } from 'lucide-react';
+
+const pillars = [
+    {
+        title: 'Decentralized Gaming',
+        desc: 'True asset ownership and permissionless markets for AAA experiences.',
+        icon: <Gamepad2 size={40} color="var(--color-accent-cyan)" />
+    },
+    {
+        title: 'DeFi Infrastructure',
+        desc: 'Liquidity layers and yield strategies built for sustainable growth.',
+        icon: <Coins size={40} color="var(--color-accent-purple)" />
+    },
+    {
+        title: 'Cross-Chain Interop',
+        desc: 'Seamless bridging and messaging across EVM and non-EVM chains.',
+        icon: <Globe size={40} color="var(--color-accent-teal)" />
+    }
+];
+
+const PlatformPillars = () => {
+    return (
+        <section id="platform" style={{ padding: '8rem 2rem', maxWidth: 'var(--container-width)', margin: '0 auto' }}>
+            <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                style={{ fontSize: '3rem', textAlign: 'center', marginBottom: '4rem' }}
+            >
+                Platform Pillars
+            </motion.h2>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                {pillars.map((pillar, index) => (
+                    <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.2 }}
+                        whileHover={{ y: -10 }}
+                        style={{
+                            background: 'rgba(255, 255, 255, 0.03)',
+                            border: '1px solid rgba(255, 255, 255, 0.1)',
+                            padding: '3rem',
+                            borderRadius: '20px',
+                            transition: 'background 0.3s'
+                        }}
+                    >
+                        <div style={{ marginBottom: '1.5rem' }}>{pillar.icon}</div>
+                        <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>{pillar.title}</h3>
+                        <p style={{ color: 'var(--color-text-secondary)' }}>{pillar.desc}</p>
+                    </motion.div>
+                ))}
+            </div>
+        </section>
+    );
+};
+
+export default PlatformPillars;
+•*cascade08"(451ef9bff17f1e842575f8a4116d19212b61d1a52Zfile:///c:/Users/Janus/DYNAMIC/dynamic-landing/src/components/sections/PlatformPillars.jsx:file:///c:/Users/Janus

@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Deploy the project to Netlify.\n- Build the project using `npm run build`.\n- Add `netlify.toml` for SPA routing.\n- Deploy the `dist` folder to Netlify.",
+  "updatedAt": "2026-01-28T14:33:29.665118400Z"
+}

@@ -1,0 +1,8 @@
+# Heropanda Alert Bot Setup
+
+- [ ] Configure Telegram Channel
+    - [x] Update `.env` with correct `TG_CHAT_ID` (`-1001457035669`) <!-- id: 0 -->
+    - [/] Verify bot can post to the channel <!-- id: 1 -->
+- [ ] Restart Monitoring
+    - [ ] Start `volume-watcher.js` <!-- id: 2 -->
+    - [ ] Verify bot is running and polling <!-- id: 3 -->

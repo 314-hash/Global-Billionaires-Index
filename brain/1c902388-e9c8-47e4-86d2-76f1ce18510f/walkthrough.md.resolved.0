@@ -1,0 +1,29 @@
+# Hero Background Animation
+I have implemented the requested 140-frame animation for the Hero section background.
+
+## Changes Implemented
+
+### 1. Animated Background in [HeroSection](file:///c:/Users/Janus/extro/janus-systems/src/components/HeroSection.tsx#10-222)
+- Added a canvas-based frame player to [HeroSection.tsx](file:///c:/Users/Janus/extro/janus-systems/src/components/HeroSection.tsx).
+- It preloads and cycles through [ezgif-frame-001.png](file:///c:/Users/Janus/extro/ezgif-frame-001.png) to [ezgif-frame-140.png](file:///c:/Users/Janus/extro/ezgif-frame-140.png) at 24fps.
+- Ensures the frames cover the entire section (`object-cover` behavior).
+- Removed the optional overlay to keep the visuals clean, but added a very subtle backdrop blur for text readability if needed. (Code has `backdrop-blur-[2px]`).
+
+### 2. Assets
+- Moved all 140 frame images to `public/hero-frames/`.
+
+### 3. Cleanup
+- Removed the global video background ([ex.mp4](file:///c:/Users/Janus/extro/janus-systems/src/assets/ex.mp4)) from [App.tsx](file:///c:/Users/Janus/extro/janus-systems/src/App.tsx) to improve performance and prevent visual conflict.
+- Fixed a CSS syntax error in [src/index.css](file:///c:/Users/Janus/extro/janus-systems/src/index.css) where `@import` was incorrectly placed.
+
+## Verification Results
+
+### Automated Build
+- `npm run build` passed successfully.
+- Implies no TypeScript errors and correct asset references (for bundled assets).
+- Frame images are in `public/` so they are served directly.
+
+### Performance Note
+- **Load Time**: The user is loading ~140 frames. This is heavy (approx 140MB).
+- **Optimization**: The current implementation preloads images. Users might see a blank or static background until images load.
+- **Future Improvement**: Convert frames to a WEBM/MP4 video for significantly better performance.

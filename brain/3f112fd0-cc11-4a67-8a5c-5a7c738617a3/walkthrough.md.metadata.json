@@ -1,0 +1,5 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_WALKTHROUGH",
+  "summary":  "Walkthrough of the Janus’ Crypto Sisig cinematic scroll experience. Documents the implementation details of the 300-frame animation engine, GSAP-driven UI transitions, and the \"Fire x Blockchain\" design language.",
+  "updatedAt":  "2026-03-02T15:23:21.612432700Z"
+}

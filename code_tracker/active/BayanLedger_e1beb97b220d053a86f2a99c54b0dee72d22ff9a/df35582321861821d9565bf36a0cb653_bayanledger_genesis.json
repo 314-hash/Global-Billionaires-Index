@@ -1,0 +1,140 @@
+É.{
+  "config": {
+    "chainId": 2501,
+    "homesteadBlock": 0,
+    "optimism": {
+      "enabled": true,
+      "sequencerAddress": "0x0000000000000000000000000000000000000000",
+      "fraudProofWindow": 604800,
+      "finalizationPeriodSeconds": 3600
+    }
+  },
+  "nonce": "0x0",
+  "timestamp": "0x64B0F0C0",
+  "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "extraData": "0x426179616E204C65646765722047656E65736973",
+  "gasLimit": "0x1fffffffffffff",
+  "difficulty": "0x400",
+  "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "coinbase": "0x0000000000000000000000000000000000000000",
+  "alloc": {
+    "genesis_validator_1": {
+      "balance": "0x0",
+      "role": "caretaker",
+      "dilithium_public_key": "c2f3137dfc4a4dc129b016648b571615ceac08f4166dee0ea2be8c69b11097611a9e709fcca63680dfa3813611a625e512106ad9f6014d1683c48dc4fc4959c0",
+      "dilithium_private_key": "a5e165dea50144064498b0e6729f1698872a3355ba64b43a71c1dc43dcbc8dd20f3ee3bd5372236905ead9743f7074b93f0d397d04386b3dfabd5cee6b9e78e8e1fc8c3a9a8a866b767eb902bdce4373870597046a4a539572efb4520c6b3635b2fb73d7932a47a5e739dcd5bb8c31dab64368dd33a8d137e0a70a410fa4f1ae",
+      "kyber_public_key": "eaa3233fb7c7e8b3cfc1000dcc32afba35c5203e5c72ec6bef14d87590fb70ce9809c287cd3d4ac32de0874c70779931384791e8dae20dd70f0c89d31722b5be",
+      "kyber_private_key": "4842a34917057db6626df3cade01b7f52db8859fc1e2ef799eb8e362795a454865245df2642bf154054096535de80b88b3608bd75cf0d9d3e5b4aae0075c7d85303f9635faec3539536bedf9cb7578980c7bcb90f0c66983814b9ce0f88c10339006ffb537282c127991733a663bb44da83ed724cb83da040d21b1bcf5c11ee0",
+      "governance_power": "restricted"
+    },
+    "genesis_validator_2": {
+      "balance": "0x0",
+      "role": "caretaker",
+      "dilithium_public_key": "3f96d802876d3fb19c5f433698d280e5ca00323d7e8511e4c7a5544a5a7e44cc172991c86b04f38b001e9d734f69bbdc462f08971db909477aa7daca7d870c41",
+      "dilithium_private_key": "9e0173691ec9c12ca6e438bff3df18e91c455eba918f0ecb908c9b8c8fb7f937e3d2307daf2ddff345350d3677e97ac258d69c9c7c6f41322951690723b0a3bfeab1a83a0e8b8020ffe27c08890d3980599b8b9d7d6e617618d8980fb86c8c88616e202ebb34911e03f03110198c2a2e2f4d2c5eef137ccdec4b1f323c46c741",
+      "kyber_public_key": "d0fb7d007cb4c1ac27cd91f932d59e553952711d566d0eefa6382eede55fd255652ed2dc67901e22413737fdd6591296aa9b9c70e977b325db7d1a83588c136f",
+      "kyber_private_key": "f9158d32cb871009c5e626d86d3f1dcd35bc03c190be36daf1aa9a87cad05300acd5cc22d7ed518aaca860dcefeb9d03446fcd855582cd1a69fa4d76d0495d404b4628bcb465fbdd840e8a379ce3de4119ae998352c29e4f0b59008d077ad0816f970b48c0dc01adf571698e23abcb019d8e8df4f4f0b56c56fd8bfafdce6cf5",
+      "governance_power": "restricted"
+    },
+    "genesis_validator_3": {
+      "balance": "0x0",
+      "role": "caretaker",
+      "dilithium_public_key": "45bca51cd6a0d8bc0219eabc8ea051f17387bf21657b9ac1989f90874cdfba69dc315c32308f47b80f16dfbaf49c822aec73b738aaf09c0c3837bdbe26a5f8e4",
+      "dilithium_private_key": "7c9cf4e3b4cba2c1639568baf9fb63a3ea76d56dcea25464850db931b68496f737047eeb503fb260f9e972bf4ce29a850c1de5f1742bd493386a5f7c20eddafa87151586e6aa3ca28bccdda1cbd618d1e624ffcd5d723e75513e0a46472459d90200fc0c37a173fa1af4d5e0aa867cbeadcca7d94ecb113ab4e7b8aea3525528",
+      "kyber_public_key": "e4130d558c5210d4a0cd729c502b0a37d774c5c211d427ae83498fb8ac91a0850dc41c88f250e56670037a1fe102dd5ae8f1aaadd6eed1208cbeede71e199d93",
+      "kyber_private_key": "30b46761a299b7d6323ed1fd3de4f3c514c4f8b6968e39887145f38d9bdcc3a55bbc791a91124643a751ca6d01d25677b763a2ea284faf293f1bbd200a9930ee2a469176941f1391c02d2d90f9c1e494db22afbf090d283727ce1cfb3c8187f9cf40c6ddbd67b509c3832f5fd5f26131942dc4e6a536a7b8d7a744db13972b01",
+      "governance_power": "restricted"
+    }
+  },
+  "bayanid_root": {
+    "issuance_enabled": false,
+    "activation_conditions": {
+      "governance_live": true,
+      "validator_quorum": 0.5,
+      "constitution_ratified": true
+    },
+    "constraints": {
+      "one_identity_per_entity": true,
+      "transferable": false,
+      "forkable": false
+    },
+    "recovery": {
+      "social_recovery": true,
+      "dao_assisted_recovery": true
+    }
+  },
+  "governance": {
+    "status": "defined_but_disabled",
+    "voting_power_formula": {
+      "token_weight": "sqrt",
+      "reputation_multiplier": true,
+      "identity_age_factor": true,
+      "participation_score": true
+    },
+    "activation_conditions": {
+      "minimum_identities": 1000,
+      "validator_decentralization": 0.6
+    }
+  },
+  "treasury": {
+    "exists": true,
+    "status": "locked",
+    "withdrawal_keys": null,
+    "unlock_conditions": {
+      "identity_quorum": 0.67,
+      "governance_approval": true,
+      "time_lock_epochs": 2
+    },
+    "slashing_redirect": "public_goods_pool"
+  },
+  "token": {
+    "symbol": "BAYAN",
+    "decimals": 18,
+    "total_supply": 1000000000000000000000000000,
+    "circulating_supply": 0,
+    "minting_enabled": false,
+    "activation_conditions": {
+      "identity_live": true,
+      "governance_live": true,
+      "treasury_unlocked": false
+    }
+  },
+  "activation_phases": {
+    "phase_0": "genesis_constitution_only",
+    "phase_1": "identity_awakening",
+    "phase_2": "governance_ignition",
+    "phase_3": "economic_activation"
+  },
+  "security_guards": {
+    "admin_keys": false,
+    "emergency_mint": false,
+    "fork_response": {
+      "identity_invalidated": true,
+      "treasury_frozen": true
+    },
+    "upgrade_policy": {
+      "governance_only": true,
+      "multi_epoch_delay": true
+    }
+  },
+  "cryptography": {
+    "signature_scheme": {
+      "primary": "CRYSTALS-Dilithium",
+      "hybrid_fallback": "ECDSA",
+      "hybrid_mode": true
+    },
+    "key_exchange": "CRYSTALS-Kyber",
+    "hash_functions": [
+      "SHA3-256",
+      "PQ-HASH-HYBRID"
+    ],
+    "zero_knowledge": {
+      "proof_system": "ZK-STARK",
+      "trusted_setup": false
+    },
+    "key_rotation": {
+      "mandatory": true,
+      "rotation_epoch": 10000
+    }
+  }
+}É."(e1beb97b220d053a86f2a99c54b0dee72d22ff9a2Cfile:///c:/Users/Janus/BayanLedger/genesis/bayanledger_genesis.json:"file:///c:/Users/Janus/BayanLedger

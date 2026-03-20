@@ -1,0 +1,19 @@
+# Security Incident Response
+
+- [x] **Identify Scope of Breach** <!-- id: 0 -->
+    - [x] Determine which account was compromised (Wallet: `0x0294...75d6`)
+    - [x] Assess if local machine access was gained (Unlikely, source was git)
+- [x] **Immediate Containment** <!-- id: 1 -->
+    - [x] Rotate secrets found in `.env` (Private Keys, API Keys)
+    - [x] Ensure `.env` is in [.gitignore](file:///c:/Users/Janus/cannatoken/cannatoken/.gitignore)
+- [x] **Codebase Security Audit** <!-- id: 2 -->
+    - [x] Scan for hardcoded secrets in source files (FOUND: [hardhat.config.ts](file:///c:/Users/Janus/cannatoken/cannatoken/hardhat.config.ts))
+    - [x] Review recent file modifications for suspicious code/backdoors
+- [x] **Damage Assessment & Recovery** <!-- id: 3 -->
+    - [x] Check if compromised wallet owns the contracts (YES - Critical)
+    - [x] Determine if redeployment is necessary (YES - Total Loss)
+    - [ ] **Redeployment** <!-- id: 4 -->
+        - [ ] Generate new secure wallet
+        - [ ] Update `.env` with new key
+        - [ ] Clean old deployment artifacts (`deployments/`, `artifacts/`)
+        - [ ] Redeploy all contracts

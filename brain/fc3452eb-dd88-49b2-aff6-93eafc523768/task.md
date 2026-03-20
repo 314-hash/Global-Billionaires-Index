@@ -1,0 +1,10 @@
+# Project Cleanup and Deployment
+
+- [x] Clean up explicit `ezgif-frame` files from root directory <!-- id: 0 -->
+    - [ ] Check if used in code <!-- id: 1 -->
+    - [ ] Move to `assets/frames` or delete (will ask user or move to backup folder) <!-- id: 2 -->
+- [x] Assist with Vercel Deployment <!-- id: 3 -->
+    - [x] specific instructions for GitHub authentication <!-- id: 4 -->
+    - [x] Verify deployment success <!-- id: 5 -->
+- [x] Project Organization <!-- id: 6 -->
+    - [x] Verify `package.json` scripts <!-- id: 7 -->

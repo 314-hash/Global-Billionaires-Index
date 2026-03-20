@@ -1,0 +1,31 @@
+# Walkthrough: Full-Screen Hero Animation Landing Page
+
+I have expanded the hero frames animation to cover the entire background of the Hero Section and simplified the [Index](file:///c:/Users/Janus/extro/janus-systems/src/pages/Index.tsx#14-48) page to make it a focused landing page.
+
+## Changes Made
+
+### Component Refactoring
+Modified [HeroSection.tsx](file:///c:/Users/Janus/extro/janus-systems/src/components/HeroSection.tsx) to:
+- Move the [FrameAnimation](file:///c:/Users/Janus/extro/janus-systems/src/components/HeroSection.tsx#10-98) from the title to the section background.
+- Apply `absolute inset-0` and `object-cover` to the animation canvas.
+- Add a backdrop blur and background tint for improved text readability.
+- Scale and adjust brightness for a premium aesthetic.
+
+### Landing Page Simplification
+Updated [Index.tsx](file:///c:/Users/Janus/extro/janus-systems/src/pages/Index.tsx) to:
+- Comment out secondary sections (`IdentitySection`, `ExecutionStack`, etc.).
+- The page now focuses purely on the Hero Section experience.
+
+## Verification Results
+
+### Visual Verification
+I verified the changes by running the local development server on port `8080`.
+
+![Full Screen Hero Animation](file:///C:/Users/Janus/.gemini/antigravity/brain/e70e9b55-fa19-4926-a36a-ce350713aed1/hero_animation_full_screen_1769610293962.png)
+
+> [!NOTE]
+> The animation is now a continuous full-screen experience that responds to the browser window size.
+
+### Interaction Verification
+- Scrolling down confirms that the other sections are hidden.
+- The footer remains accessible at the bottom.

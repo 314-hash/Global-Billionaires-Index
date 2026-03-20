@@ -1,0 +1,135 @@
+·;Token,Total Supply,Circulating Supply,Price (USD),Market Cap,FDV,Holders,Contracts
+CannaTokenV2,200000000,200000000,0.005,1000000,1000000,1,0x9D673Cc32522854aFc2BB241b0070416762D6a91
+WrappedCannaV2,0,0,0.005,0,0,0,0x761437966C93D649423B0800eB68529155E5537f
+CannaGovToken,100000000,100000000,0.01,1000000,1000000,1,0x1498e9d67922EDe8914C9A34138d261011AbFfe7
+
+TOKEN DISTRIBUTION - CannaTokenV2
+Allocation,Amount,Percentage,Vesting Schedule,Release Start,Monthly Release,Full Unlock
+Community Treasury,80000000,40%,Governed by DAO,Immediate,DAO Controlled,DAO Controlled
+Ecosystem Development,40000000,20%,4-year linear,Month 1,833333,Month 48
+Initial Liquidity,30000000,15%,2-year lock,Month 1,0,Month 24
+Team & Advisors,20000000,10%,4-year with 1-year cliff,Month 13,416667,Month 48
+Strategic Partnerships,15000000,7.5%,Performance-based,Variable,Variable,Variable
+Reserve Fund,15000000,7.5%,Multi-sig controlled,As needed,As needed,As needed
+
+TOKEN DISTRIBUTION - CannaGovToken
+Allocation,Amount,Percentage,Vesting Schedule,Release Start,Monthly Release,Full Unlock
+Staking Rewards,40000000,40%,Distributed over 4 years,Month 1,833333,Month 48
+Governance Reserve,25000000,25%,DAO Controlled,Month 6,DAO Vote,DAO Vote
+Community Airdrops,15000000,15%,6-month campaign,Month 1,2500000,Month 6
+Team,10000000,10%,4-year linear,Month 1,208333,Month 48
+Advisors,5000000,5%,2-year linear,Month 1,208333,Month 24
+Liquidity Mining,5000000,5%,12-month program,Month 1,416667,Month 12
+
+REVENUE PROJECTIONS (5-Year)
+Year,Quarter,Merchants,Active Users,Transaction Volume (USD),Avg Transaction Size,Total Transactions,Revenue (0.3%),Expenses,Net Income,Token Price (Projected),Market Cap,Notes
+1,Q1,10,1000,5000000,50,100000,15000,150000,-135000,0.005,1000000,Pilot phase
+1,Q2,25,2500,12500000,50,250000,37500,200000,-162500,0.006,1200000,
+1,Q3,50,5000,25000000,50,500000,75000,250000,-175000,0.008,1600000,
+1,Q4,100,10000,50000000,50,1000000,150000,300000,-150000,0.01,2000000,Break-even approaching
+2,Q1,200,25000,100000000,50,2000000,300000,350000,-50000,0.015,3000000,
+2,Q2,350,50000,175000000,50,3500000,525000,400000,125000,0.02,4000000,First profit
+2,Q3,500,75000,250000000,50,5000000,750000,450000,300000,0.025,5000000,
+2,Q4,750,100000,375000000,50,7500000,1125000,500000,625000,0.03,6000000,
+3,Q1,1000,150000,500000000,50,10000000,1500000,600000,900000,0.04,8000000,
+3,Q2,1500,225000,750000000,50,15000000,2250000,700000,1550000,0.06,12000000,Scale phase
+3,Q3,2000,300000,1000000000,50,20000000,3000000,800000,2200000,0.08,16000000,
+3,Q4,2500,400000,1250000000,50,25000000,3750000,900000,2850000,0.1,20000000,
+4,Q1,3500,550000,1750000000,50,35000000,5250000,1000000,4250000,0.15,30000000,
+4,Q2,5000,750000,2500000000,50,50000000,7500000,1200000,6300000,0.2,40000000,
+4,Q3,6500,1000000,3250000000,50,65000000,9750000,1400000,8350000,0.25,50000000,Maturity phase
+4,Q4,7500,1250000,3750000000,50,75000000,11250000,1600000,9650000,0.3,60000000,
+5,Q1,10000,1500000,5000000000,50,100000000,15000000,1800000,13200000,0.4,80000000,
+5,Q2,13000,1800000,6500000000,50,130000000,19500000,2000000,17500000,0.5,100000000,
+5,Q3,16500,2100000,8250000000,50,165000000,24750000,2200000,22550000,0.65,130000000,
+5,Q4,20000,2500000,10000000000,50,200000000,30000000,2400000,27600000,0.75,150000000,Target achieved
+
+STAKING ECONOMICS
+Parameter,Value,Notes
+Base APY,5%,Minimum staking reward
+Maximum APY,15%,With governance token multiplier
+Staking Period Options,"30d 90d 180d 365d",Longer = higher APY
+Early Unstake Penalty,10%,Penalty distributed to remaining stakers
+Governance Multiplier,2x,Requires CannaGovToken stake
+Minimum Stake,100 CANNA,Prevent spam
+Compound Frequency,Daily,Auto-compound option available
+Reward Distribution,Weekly,Every Friday 00:00 UTC
+Slashing Conditions,None initially,May add via governance
+
+LIQUIDITY POOL METRICS
+Pool,Token A,Token B,Liquidity (USD),Volume 24h,Volume 7d,APR,Your Share,Fees Earned
+wCANNA/BNB,wCANNA,BNB,100000,10000,50000,45%,0%,0
+CANNA-GOV/BUSD,CANNA-GOV,BUSD,50000,5000,25000,38%,0%,0
+
+FEE STRUCTURE
+Transaction Type,Fee,Distribution - Burn,Distribution - Stakers,Distribution - Treasury,Notes
+Standard Transfer,0%,0%,0%,0%,No fee on simple transfers
+Swap (wCANNA),0.3%,40%,30%,30%,PancakeSwap integration
+Enterprise Payment,0.25%,40%,30%,30%,Volume discount
+API Call,0.5%,40%,30%,30%,Premium feature
+Governance Proposal,0,0,0,0,Free for CANNA-GOV holders
+Staking,0%,0%,0%,0%,No fee to stake
+Unstaking (on-time),0%,0%,0%,0%,No penalty if period complete
+Unstaking (early),10%,100% to stakers,0%,0%,Penalty discourages early exit
+
+USE OF FUNDS ($5M Raise)
+Category,Amount,Percentage,Breakdown
+Product Development,2000000,40%,Mobile app ($800K)| API platform ($600K)| Security audits ($400K)| Infrastructure ($200K)
+Marketing & Growth,1500000,30%,Brand awareness ($500K)| Partnerships ($400K)| Community ($300K)| Events ($200K)| Content ($100K)
+Operations,1000000,20%,Salaries 5 hires ($600K)| Legal/Compliance ($250K)| Office/Admin ($150K)
+Reserve,500000,10%,Emergency fund ($300K)| Strategic opportunities ($200K)
+Total,5000000,100%,
+
+TEAM ALLOCATION
+Role,Salary (Annual),Equity (CANNA),Equity (%),Vesting,Count,Total Cost
+CEO,150000,2000000,1%,4-year,1,150000
+CTO,140000,1800000,0.9%,4-year,1,140000
+COO,130000,1500000,0.75%,4-year,1,130000
+Smart Contract Dev,120000,800000,0.4%,4-year,2,240000
+Full-Stack Dev,110000,600000,0.3%,4-year,2,220000
+Marketing Lead,100000,500000,0.25%,3-year,1,100000
+Compliance Officer,110000,400000,0.2%,3-year,1,110000
+DevOps,100000,300000,0.15%,3-year,1,100000
+Total,,,4.95%,,10,1190000
+
+MILESTONES & METRICS
+Metric,Month 3,Month 6,Month 12,Month 24,Month 36,Month 48,Month 60
+Merchants,10,50,100,500,2000,7500,20000
+Active Users,1000,5000,10000,100000,400000,1250000,2500000
+Transaction Volume (M USD),5,25,50,500,2000,7500,20000
+Revenue (K USD),15,75,150,1500,6000,22500,60000
+Token Holders,100,500,2000,10000,50000,150000,300000
+Liquidity (M USD),0.1,0.5,1,5,15,40,100
+wCANNA Wrapped (%),1%,5%,10%,25%,40%,50%,60%
+Staking Participation (%),10%,20%,30%,40%,50%,55%,60%
+Governance Proposals,0,2,10,50,150,300,500
+Partnerships (Major),0,1,3,10,25,50,100
+
+BURN SCHEDULE & DEFLATION
+Quarter,Fees Collected (USD),Burn Amount (40%),Burn in CANNA,Cumulative Burned,Remaining Supply,Deflation Rate
+Q1 Y1,150000,60000,12000000,12000000,188000000,6%
+Q2 Y1,375000,150000,25000000,37000000,163000000,18.5%
+Q3 Y1,750000,300000,37500000,74500000,125500000,37.25%
+Q4 Y1,1500000,600000,60000000,134500000,65500000,67.25%
+
+VALUATION BENCHMARKS
+Comparable,Market Cap (M),Revenue (M),Price/Sales,Users,Price/User,Notes
+Competitor A,5,0.5,10x,10000,500,Overhyped no product
+Competitor B,15,2,7.5x,50000,300,Centralized model
+DeFi Protocol X,200,30,6.7x,500000,400,Established player
+Cannabis MSO,500,100,5x,N/A,N/A,Traditional business
+CannaToken (Current),1,0,N/A,1000,1000,Early stage
+CannaToken (Year 3),16,8,2x,400000,40,Conservative estimate
+CannaToken (Year 5),150,75,2x,2500000,60,Mature valuation
+
+KEY ASSUMPTIONS
+Assumption,Value,Confidence,Risk if Wrong
+Average transaction size,$50,High,Lower â†’ more txs needed
+Merchant adoption rate,20% MoM,Medium,Could be faster/slower
+User retention,80%,Medium,Critical for growth
+Crypto adoption in cannabis,30% by Y3,Medium-Low,Regulatory dependent
+BNB price stability,+/- 20%,Low,Impacts liquidity
+No major security breach,100%,High,Catastrophic if wrong
+Regulatory clarity improves,70%,Medium,Could slow adoption
+Competition intensity,Medium,Medium,First-mover advantage key
+·;*cascade08"(451ef9bff17f1e842575f8a4116d19212b61d1a52;file:///c:/Users/Janus/cannatoken/cannatoken/TOKENOMICS.csv:file:///c:/Users/Janus

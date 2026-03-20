@@ -1,0 +1,44 @@
+# Implementation Plan - Janus’ Crypto Sisig Cinematic Scroll
+
+This plan outlines the creation of a high-energy, cinematic landing page for "Janus’ Crypto Sisig" using a 300-frame scroll animation.
+
+## User Review Required
+
+> [!IMPORTANT]
+> - The 300 frames in `c:/New folder (2)` are quite large in total size. I will implement a robust preloading strategy to ensure a smooth initial experience.
+> - Mobile users will have a reduced frame count (120 frames) for performance.
+
+## Proposed Changes
+
+### Tech Stack
+- **Framework**: Vite + React
+- **Animation**: GSAP + ScrollTrigger
+- **Styling**: Vanilla CSS with CSS Variables (GSAP theme)
+- **Icons**: Lucide React
+
+### Components
+
+#### [NEW] [ScrollEngine.jsx](file:///C:/New%20folder%20(2)/src/components/ScrollEngine.jsx)
+- Handles the canvas rendering of the 300 frames.
+- Tie scroll progress to `currentFrame` index.
+- Implements lazy loading for frames beyond the first 50.
+
+#### [NEW] [OverlayUI.jsx](file:///C:/New%20folder%20(2)/src/components/OverlayUI.jsx)
+- Contains the textual and UI elements (Logo, CTA, Pricing).
+- Uses ScrollTrigger to animate opacity, position, and scale of elements based on specific frame ranges (e.g., 1-60, 61-110, etc.).
+
+#### [MODIFY] [index.css](file:///C:/New%20folder%20(2)/src/index.css)
+- Implement 8px grid system.
+- Define global colors (Neon Green, Fire Red, Dark Emerald).
+- Add support for `prefers-reduced-motion`.
+
+## Verification Plan
+
+### Automated Tests
+- None planned for this visual-heavy project.
+
+### Manual Verification
+- Scroll through the entire 300-frame sequence to verify transitions.
+- Check responsiveness on different screen widths.
+- Verify that "New folder (2)" frames load correctly.
+- Test performance (FPS) during scroll.

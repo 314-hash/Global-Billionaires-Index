@@ -1,0 +1,15 @@
+# Implementing Wallet Status Component
+
+## Checklist
+
+- [ ] Plan component development
+  - [ ] Review `src/context/AppContext.js` for existing wallet state
+  - [ ] Review `src/routes/routes.js` for route integration
+- [ ] Implement `WalletStatus` component
+  - [ ] Create `src/components/WalletStatus.js`
+  - [ ] Consume wallet context
+  - [ ] Implement UI (Connected/Not Connected badge, truncated address)
+  - [ ] Implement MetaMask connect behavior
+- [ ] Integrate into routing
+  - [ ] Add `/dashboard/wallet-status` route in `src/routes/routes.js`
+- [ ] Verify functionality

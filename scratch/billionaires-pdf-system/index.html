@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 200 Billionaires</title>
+    <!-- Use Inter font for clean typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- The css will be inline when generating PDF, or loaded relatively -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="document-header">
+        <h1>Global Wealth Report</h1>
+        <p>The Top 200 Richest People in the World</p>
+        <div class="summary-stats">
+            <div class="stat-box">
+                <span>Total Individuals</span>
+                <strong>200</strong>
+            </div>
+            <div class="stat-box">
+                <span>Total Combined Wealth</span>
+                <strong>> $4 Trillion</strong>
+            </div>
+            <div class="stat-box">
+                <span>Report Date</span>
+                <strong>{{DATE}}</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container for dynamic table generation -->
+    <div id="content-area">
+        {{TABLES_CONTENT}}
+    </div>
+
+    <div class="footer">
+        <p>Generated via Automated HTML to PDF Export System • Confidential & Proprietary</p>
+    </div>
+</body>
+</html>

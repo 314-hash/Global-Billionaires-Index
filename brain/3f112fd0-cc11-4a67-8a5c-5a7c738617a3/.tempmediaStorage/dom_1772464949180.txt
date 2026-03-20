@@ -1,0 +1,142 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Accessibility Links
+Skip to main content
+Accessibility help
+Accessibility feedback
+[0] (76,72)<a aria-label='Go to Google Home' href='https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwip8ruqwoGTAxX5GTQIHXVoKHIQPAgJ' id='logo' title='Go to Google Home' />
+[1] (354,71)<textarea aria-label='Search' class='gLFyf' id='APjFqb' role='combobox' />
+[2] (578,71)<div  />
+	[3] (576,71)<div aria-label=' Clear' class='M2vV3 vOY7J' role='button' />
+		[4] (576,71)<span  />
+	[5] (592,71)<span  />
+[6] (607,71)<div aria-label='Search by voice' class='XDyW0e' role='button' />
+[7] (633,71)<div aria-label='Search by image' class='nDcEnd' role='button' />
+[8] (975,71)<a aria-label='Google Account: Ophirians Maharlika  
+(mophirians@gmail.com)' class='gb_B gb_0a' href='https://accounts.google.com/SignOutOptions?hl=en&continue=https://www.google.com/search%3Fq%3D%2522JANUS%2527%2BCRYPTO%2BSISIG%2522&ec=futura_srp_og_si_72236_p' role='button' />
+Please enable permissions. Otherwise SaveFrom.net Helper script will not work.
+To enable it, open chrome://extensions/ in a new tab and enable Developer mode. To allow User Scripts click ‘Details’ under OrangeMonkey and then turn on ‘Allow User Scripts’ toggle.
+To finish setup, please restart the extension (turn off and on) or restart the browser.
+Filters and Topics
+[9] (162,156)<a class='XVMlrc C6AK7c' href='/search?q=%22JANUS%27+CRYPTO+SISIG%22&sca_esv=101ff31f9e3f7929&sxsrf=ANbL-n7U4R8XOfjdXuJLeWwWCpFJScfwWQ:1772464909520&udm=50&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpaEWjvZ2Py1XXV8d8KvlI3ppPEReeCOS7s1VbbZz2TLsHwpSX8VU1h5wlQRdyYz8mgmyd_eZo_tiZsdW2U82hFybpERnPlcoMGz-UTCSY7M1wdELhW6V_7XA7oawChsFkIyuZ2p7PBfv88o0SlO-FWiLhT0P-_fahhxHpct0NX9EgoZwhOK2dgF2K9Ni8u8b_MvHbkQ&aep=1&ntc=1&sa=X&ved=2ahUKEwip8ruqwoGTAxX5GTQIHXVoKHIQ2J8OegQIExAE' />
+	[10] (162,156)<div  />
+		[11] (162,168)<div  />
+			[12] (162,160)<span >AI Mode />
+[13] (198,156)<a class='C6AK7c' role='link' />
+	All
+[14] (233,156)<a class='C6AK7c' href='/search?sca_esv=101ff31f9e3f7929&sxsrf=ANbL-n7U4R8XOfjdXuJLeWwWCpFJScfwWQ:1772464909520&udm=2&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpaEWjvZ2Py1XXV8d8KvlI3ppPEReeCOS7s1VbbZz2TLsHwpSX8VU1h5wlQRdyYz8mgmyd_eZo_tiZsdW2U82hFybpERnPlcoMGz-UTCSY7M1wdELhW6V_7XA7oawChsFkIyuZ2p7PBfv88o0SlO-FWiLhT0P-_fahhxHpct0NX9EgoZwhOK2dgF2K9Ni8u8b_MvHbkQ&q=%22JANUS%27+CRYPTO+SISIG%22&sa=X&ved=2ahUKEwip8ruqwoGTAxX5GTQIHXVoKHIQtKgLegQIGRAB' />
+	[15] (233,156)<div  />
+		[16] (233,168)<span >Images />
+[17] (273,156)<a class='C6AK7c' href='/search?sca_esv=101ff31f9e3f7929&sxsrf=ANbL-n7U4R8XOfjdXuJLeWwWCpFJScfwWQ:1772464909520&q=%22JANUS%27+CRYPTO+SISIG%22&tbm=nws&source=lnms&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpaEWjvZ2Py1XXV8d8KvlI3ppPEReeCOS7s1VbbZz2TLsHwpSX8VU1h5wlQRdyYz8mgmyd_eZo_tiZsdW2U82hFybpERnPlcoMGz-UTCSY7M1wdELhW6V_7XA7oawChsFkIyuZ2p7PBfv88o0SlO-FWiLhT0P-_fahhxHpct0NX9EgoZwhOK2dgF2K9Ni8u8b_MvHbkQ&sa=X&ved=2ahUKEwip8ruqwoGTAxX5GTQIHXVoKHIQ0pQJegQIGBAB' />
+	[18] (273,156)<div  />
+		[19] (273,168)<span >News />
+[20] (313,156)<a class='C6AK7c' href='/search?sca_esv=101ff31f9e3f7929&sxsrf=ANbL-n7U4R8XOfjdXuJLeWwWCpFJScfwWQ:1772464909520&udm=7&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpaEWjvZ2Py1XXV8d8KvlI3ppPEReeCOS7s1VbbZz2TLsHwpSX8VU1h5wlQRdyYz8mgmyd_eZo_tiZsdW2U82hFybpERnPlcoMGz-UTCSY7M1wdELhW6V_7XA7oawChsFkIyuZ2p7PBfv88o0SlO-FWiLhT0P-_fahhxHpct0NX9EgoZwhOK2dgF2K9Ni8u8b_MvHbkQ&q=%22JANUS%27+CRYPTO+SISIG%22&sa=X&ved=2ahUKEwip8ruqwoGTAxX5GTQIHXVoKHIQtKgLegQIFxAB' />
+	[21] (313,156)<div  />
+		[22] (313,168)<span >Videos />
+[23] (366,156)<a class='C6AK7c' href='/search?sca_esv=101ff31f9e3f7929&sxsrf=ANbL-n7U4R8XOfjdXuJLeWwWCpFJScfwWQ:1772464909520&udm=39&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpaEWjvZ2Py1XXV8d8KvlI3ppPEReeCOS7s1VbbZz2TLsHwpSX8VU1h5wlQRdyYz8mgmyd_eZo_tiZsdW2U82hFybpERnPlcoMGz-UTCSY7M1wdELhW6V_7XA7oawChsFkIyuZ2p7PBfv88o0SlO-FWiLhT0P-_fahhxHpct0NX9EgoZwhOK2dgF2K9Ni8u8b_MvHbkQ&q=%22JANUS%27+CRYPTO+SISIG%22&sa=X&ved=2ahUKEwip8ruqwoGTAxX5GTQIHXVoKHIQs6gLegQIFRAB' />
+	[24] (366,156)<div  />
+		[25] (366,168)<span >Short videos />
+[26] (425,156)<a class='C6AK7c' href='/search?sca_esv=101ff31f9e3f7929&sxsrf=ANbL-n7U4R8XOfjdXuJLeWwWCpFJScfwWQ:1772464909520&udm=28&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpaEWjvZ2Py1XXV8d8KvlI3ppPEReeCOS7s1VbbZz2TLsHwpSX8VU1h5wlQRdyYz8mgmyd_eZo_tiZsdW2U82hFybpERnPlcoMGz-UTCSY7M1wdELhW6V_7XA7oawChsFkIyuZ2p7PBfv88o0SlO-FWiLhT0P-_fahhxHpct0NX9EgoZwhOK2dgF2K9Ni8u8b_MvHbkQ&q=%22JANUS%27+CRYPTO+SISIG%22&ved=1t:220175&ictx=111' />
+	[27] (425,156)<div  />
+		[28] (425,168)<span >Shopping />
+[29] (474,156)<div class='mTpL7c' role='button' />
+	[30] (474,156)<div  />
+		[31] (474,168)<div  />
+			[32] (469,160)<span >More />
+			[33] (484,160)<span  />
+[34] (521,156)<div class='mOKdDc' id='hdtb-tls' role='button' />
+	[35] (521,156)<div  />
+		[36] (521,168)<div  />
+			[37] (515,160)<span >Tools />
+			[38] (531,160)<span  />
+Search Results
+[39] (309,277)<a class='zReHs' href='https://www.facebook.com/61587330890524/posts/fully-furnished-house-for-rentwalking-distance-sa-sm-center-munisipyo-perpetual-/122106875583244363/' />
+	[40] (309,303)<h3 >Fully furnished House For Rent! Walking distance sa sm ... />
+	[41] (215,256)<div  />
+		[42] (215,256)<div  />
+			[43] (154,256)<span  />
+				[44] (154,256)<div  />
+					[45] (154,256)<img  />
+			[46] (228,256)<div  />
+				[47] (228,244)<div  />
+					[48] (228,244)<span >Facebook · Grace Valderama />
+				[49] (228,269)<div  />
+					[50] (212,269)<cite class='qLRx3b tjvcx GvPZzd cHaqb' role='text'>2 reactions  ·  1 week ago />
+[51] (298,268)<div aria-label='About this result' class='MJ8UF iTPLzd rNSxBe eY4mx lUn2nc' role='button' />
+	[52] (298,268)<span  />
+		[53] (298,269)<span  />
+Janus Crypto Sisig
+is with Jemina Ladero. 23h󰞋󱟠. #CryptoSisig #ProofOfTaste #SarapNgBawatKagat #StreetFoodVibes #UniqueFlavors ...
+[54] (317,373)<a class='vzmbzf' href='https://www.facebook.com/61587330890524/posts/fully-furnished-house-for-rentwalking-distance-sa-sm-center-munisipyo-perpetual-/122106875583244363/#:~:text=Janus%20Crypto%20Sisig%20is%20with,%23CryptoSisig%20%23ProofOfTaste%20%23SarapNgBawatKagat%20%23StreetFoodVibes%20%23UniqueFlavors' />
+	[55] (317,373)<span >Read more />
+[56] (319,477)<a class='zReHs' href='https://www.facebook.com/61587330890524/posts/bungalow-house-for-rent-location-italia-500-bf-resort-village-las-pi%C3%B1as-cityrent/122106690939244363/' />
+	[57] (319,503)<h3 >BUNGALOW HOUSE FOR RENT Location: ITALIA 500, BF ... />
+	[58] (215,456)<div  />
+		[59] (215,456)<div  />
+			[60] (154,456)<span  />
+				[61] (154,456)<div  />
+					[62] (154,456)<img  />
+			[63] (228,456)<div  />
+				[64] (228,443)<div  />
+					[65] (228,443)<span >Facebook · Grace Valderama />
+				[66] (228,469)<div  />
+					[67] (210,469)<cite class='qLRx3b tjvcx GvPZzd cHaqb' role='text'>1 reaction  ·  1 week ago />
+[68] (298,468)<div aria-label='About this result' class='MJ8UF iTPLzd rNSxBe eY4mx lUn2nc' role='button' />
+	[69] (298,468)<span  />
+		[70] (298,469)<span  />
+Janus Crypto Sisig
+is with Jemina Ladero. 1d󰞋󱟠. #CryptoSisig ... May be a graphic of text that says 'B B
+JANUS CRYPTO SISIG
+PROOF OF TASTE.
+[71] (356,573)<a class='vzmbzf' href='https://www.facebook.com/61587330890524/posts/bungalow-house-for-rent-location-italia-500-bf-resort-village-las-pi%C3%B1as-cityrent/122106690939244363/#:~:text=Janus%20Crypto%20Sisig%20is%20with,%23CryptoSisig&text=%F3%B0%8D%B8' />
+	[72] (356,573)<span >Read more />
+[73] (219,677)<a class='zReHs' href='https://www.tiktok.com/discover/cripto-super-cao-cosplay' />
+	[74] (219,702)<h3 >Cripto Super Cao Cosplay />
+	[75] (213,655)<div  />
+		[76] (213,655)<div  />
+			[77] (154,655)<span  />
+				[78] (154,655)<div  />
+					[79] (154,655)<img  />
+			[80] (226,655)<div  />
+				[81] (226,643)<div  />
+					[82] (226,643)<span >TikTok />
+				[83] (226,669)<div  />
+					[84] (226,669)<cite class='qLRx3b tjvcx GvPZzd cHaqb' role='text'>https://www.tiktok.com />
+						[85] (263,669)<span class='ylgVCe ob9lvb' role='text'>› Discover />
+[86] (294,668)<div aria-label='About this result' class='MJ8UF iTPLzd rNSxBe eY4mx lUn2nc' role='button' />
+	[87] (294,668)<span  />
+		[88] (294,669)<span  />
+7 days ago
+—
+TikTok video from
+Janus Crypto Sisig
+(@janus. 1631d ago. janus.crypto.sisi.
+Janus Crypto Sisig
+. We Accept Bulk Orders, ill upload testimonials ...
+[89] (419,773)<a class='vzmbzf' href='https://www.tiktok.com/discover/cripto-super-cao-cosplay#:~:text=1631d%20ago,honest%20review%20of%20my%20Product' />
+	[90] (419,773)<span >Read more />
+[91] (320,876)<a class='zReHs' href='https://www.facebook.com/61587330890524/posts/-house-for-rent-bare-unit-chessa-model-gl-3-lancaster-new-city-features-3-bedroo/122105467563244363/' />
+	[92] (320,902)<h3 >HOUSE FOR RENT – BARE UNIT (CHESSA MODEL, GL 3 ... />
+	[93] (215,855)<div  />
+		[94] (215,855)<div  />
+			[95] (154,855)<span  />
+				[96] (154,855)<div  />
+					[97] (154,855)<img  />
+			[98] (228,855)<div  />
+				[99] (228,843)<div  />
+					[100] (228,843)<span >Facebook · Grace Valderama />
+				[101] (228,869)<div  />
+					[102] (214,869)<cite class='qLRx3b tjvcx GvPZzd cHaqb' role='text'>2 reactions  ·  2 weeks ago />
+[103] (298,867)<div aria-label='About this result' class='MJ8UF iTPLzd rNSxBe eY4mx lUn2nc' role='button' />
+	[104] (298,867)<span  />
+		[105] (298,869)<span  />
+Janus Crypto Sisig
+is with Jemina Ladero. 1d󰞋󱟠. #CryptoSisig ... May be a graphic of text that says 'B B
+JANUS CRYPTO SISIG
+PROOF OF TASTE.
+[106] (356,973)<a class='vzmbzf' href='https://www.facebook.com/61587330890524/posts/-house-for-rent-bare-unit-chessa-model-gl-3-lancaster-new-city-features-3-bedroo/122105467563244363/#:~:text=Janus%20Crypto%20Sisig%20is%20with,%23CryptoSisig&text=%F3%B0%8D%B8' />
+	[107] (356,973)<span >Read more />
+
+</current_dom>

@@ -1,0 +1,656 @@
+Ԫ<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CannaToken V2 Wrapper</title>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 28px;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: #718096;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .wallet-info {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .wallet-address {
+            font-size: 12px;
+            color: #4a5568;
+            word-break: break-all;
+            margin-bottom: 16px;
+        }
+
+        .network-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #48bb78;
+            color: white;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .balance-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .balance-item {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .balance-label {
+            font-size: 11px;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .balance-value {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .wrap-section {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #4a5568;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.2s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .button-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        button {
+            padding: 14px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-wrap {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-wrap:hover:not(:disabled) {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-unwrap {
+            background: #48bb78;
+            color: white;
+        }
+
+        .btn-unwrap:hover:not(:disabled) {
+            background: #38a169;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(72, 187, 120, 0.4);
+        }
+
+        .btn-connect {
+            background: #667eea;
+            color: white;
+            width: 100%;
+            margin-bottom: 24px;
+        }
+
+        .btn-connect:hover {
+            background: #5568d3;
+        }
+
+        .btn-refresh {
+            background: #edf2f7;
+            color: #4a5568;
+            width: 100%;
+            margin-top: 16px;
+        }
+
+        .btn-refresh:hover:not(:disabled) {
+            background: #e2e8f0;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .status {
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .status.success {
+            background: #c6f6d5;
+            color: #22543d;
+            display: block;
+        }
+
+        .status.error {
+            background: #fed7d7;
+            color: #742a2a;
+            display: block;
+        }
+
+        .status.loading {
+            background: #bee3f8;
+            color: #2c5282;
+            display: block;
+        }
+
+        .info-box {
+            background: #ebf8ff;
+            border-left: 4px solid #3182ce;
+            padding: 16px;
+            margin-top: 24px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #2c5282;
+        }
+
+        .contracts {
+            margin-top: 24px;
+            padding: 16px;
+            background: #f7fafc;
+            border-radius: 8px;
+            font-size: 12px;
+        }
+
+        .contract-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .contract-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .contract-label {
+            color: #718096;
+            font-weight: 500;
+        }
+
+        .contract-address {
+            color: #4a5568;
+            font-family: monospace;
+            cursor: pointer;
+        }
+
+        .contract-address:hover {
+            color: #667eea;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .max-btn {
+            background: #edf2f7;
+            color: #4a5568;
+            padding: 6px 12px;
+            font-size: 12px;
+            margin-left: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            border: none;
+            font-weight: 600;
+        }
+
+        .max-btn:hover {
+            background: #e2e8f0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🌿 CannaToken V2</h1>
+        <p class="subtitle">Wrap & Unwrap Your Tokens</p>
+
+        <button id="connectBtn" class="btn-connect" onclick="connectWallet()">
+            Connect MetaMask
+        </button>
+
+        <div id="walletSection" class="hidden">
+            <div class="wallet-info">
+                <div class="wallet-address">
+                    <strong>Wallet:</strong> <span id="walletAddress"></span>
+                    <span id="networkBadge" class="network-badge">BSC</span>
+                </div>
+                <div class="balance-grid">
+                    <div class="balance-item">
+                        <div class="balance-label">CannaTokenV2</div>
+                        <div class="balance-value" id="cannaBalance">...</div>
+                    </div>
+                    <div class="balance-item">
+                        <div class="balance-label">wCANNA</div>
+                        <div class="balance-value" id="wcannaBalance">...</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wrap-section">
+                <div class="input-group">
+                    <label for="amountInput">
+                        Amount
+                        <button class="max-btn" onclick="setMaxWrap()">MAX</button>
+                    </label>
+                    <input type="number" id="amountInput" placeholder="0.0" step="0.000001" min="0">
+                </div>
+
+                <div class="button-group">
+                    <button id="wrapBtn" class="btn-wrap" onclick="wrapTokens()">
+                        Wrap →
+                    </button>
+                    <button id="unwrapBtn" class="btn-unwrap" onclick="unwrapTokens()">
+                        ← Unwrap
+                    </button>
+                </div>
+
+                <button class="btn-refresh" onclick="updateBalances()">
+                    🔄 Refresh Balances
+                </button>
+            </div>
+
+            <div id="status" class="status"></div>
+
+            <div class="info-box">
+                <strong>ℹ️ How it works:</strong><br>
+                • <strong>Wrap</strong>: Convert CannaTokenV2 → wCANNA (for trading on DEX)<br>
+                • <strong>Unwrap</strong>: Convert wCANNA → CannaTokenV2 (1:1 ratio)<br>
+                • <strong>Note</strong>: First wrap transaction requires operator approval
+            </div>
+
+            <div class="contracts">
+                <div class="contract-item">
+                    <span class="contract-label">CannaTokenV2:</span>
+                    <span class="contract-address" onclick="copyAddress('0x9D673Cc32522854aFc2BB241b0070416762D6a91')"
+                        title="Click to copy">0x9D67...6a91</span>
+                </div>
+                <div class="contract-item">
+                    <span class="contract-label">WrappedCannaV2:</span>
+                    <span class="contract-address" onclick="copyAddress('0x761437966C93D649423B0800eB68529155E5537f')"
+                        title="Click to copy">0x7614...537f</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Contract addresses
+        const CANNA_TOKEN_V2 = "0x9D673Cc32522854aFc2BB241b0070416762D6a91";
+        const WRAPPED_CANNA_V2 = "0x761437966C93D649423B0800eB68529155E5537f";
+        const TOKEN_ID = 1;
+        const BSC_CHAIN_ID = 56;
+
+        // ABIs
+        const CANNA_V2_ABI = [
+            "function balanceOf(address account, uint256 id) view returns (uint256)",
+            "function burn(address from, uint256 id, uint256 amount)",
+            "function isOperator(address account) view returns (bool)",
+            "function mint(address to, uint256 id, uint256 amount)"
+        ];
+
+        const WRAPPED_V2_ABI = [
+            "function balanceOf(address account) view returns (uint256)",
+            "function wrap(uint256 amount)",
+            "function unwrap(uint256 amount)",
+            "function isAuthorized() view returns (bool)",
+            "function getUnderlyingBalance(address account) view returns (uint256)"
+        ];
+
+        let provider;
+        let signer;
+        let account;
+        let cannaContract;
+        let wrappedContract;
+        let cannaBalance = ethers.BigNumber.from(0);
+        let wcannaBalance = ethers.BigNumber.from(0);
+
+        async function connectWallet() {
+            if (typeof window.ethereum === 'undefined') {
+                showStatus('❌ Please install MetaMask!', 'error');
+                window.open('https://metamask.io/download/', '_blank');
+                return;
+            }
+
+            try {
+                // Request account access
+                await window.ethereum.request({ method: 'eth_requestAccounts' });
+
+                // Create provider and signer
+                provider = new ethers.providers.Web3Provider(window.ethereum);
+                signer = provider.getSigner();
+                account = await signer.getAddress();
+
+                // Check network
+                const network = await provider.getNetwork();
+                if (network.chainId !== BSC_CHAIN_ID) {
+                    showStatus('⚠️ Please switch to BSC Mainnet!', 'error');
+                    await switchToBSC();
+                    return;
+                }
+
+                // Initialize contracts
+                cannaContract = new ethers.Contract(CANNA_TOKEN_V2, CANNA_V2_ABI, signer);
+                wrappedContract = new ethers.Contract(WRAPPED_CANNA_V2, WRAPPED_V2_ABI, signer);
+
+                // Update UI
+                document.getElementById('connectBtn').classList.add('hidden');
+                document.getElementById('walletSection').classList.remove('hidden');
+                document.getElementById('walletAddress').textContent =
+                    account.substring(0, 6) + '...' + account.substring(38);
+
+                // Load balances
+                await updateBalances();
+                showStatus('✅ Wallet connected successfully!', 'success');
+
+                console.log('Connected:', account);
+                console.log('CannaTokenV2:', CANNA_TOKEN_V2);
+                console.log('WrappedCannaV2:', WRAPPED_CANNA_V2);
+
+            } catch (error) {
+                console.error('Connection error:', error);
+                showStatus('❌ Failed to connect: ' + error.message, 'error');
+            }
+        }
+
+        async function switchToBSC() {
+            try {
+                await window.ethereum.request({
+                    method: 'wallet_switchEthereumChain',
+                    params: [{ chainId: '0x38' }], // 56 in hex
+                });
+                // Retry connection after switch
+                setTimeout(connectWallet, 1000);
+            } catch (switchError) {
+                // Chain not added, try to add it
+                if (switchError.code === 4902) {
+                    try {
+                        await window.ethereum.request({
+                            method: 'wallet_addEthereumChain',
+                            params: [{
+                                chainId: '0x38',
+                                chainName: 'BNB Smart Chain',
+                                nativeCurrency: {
+                                    name: 'BNB',
+                                    symbol: 'BNB',
+                                    decimals: 18
+                                },
+                                rpcUrls: ['https://bsc-dataseed.binance.org/'],
+                                blockExplorerUrls: ['https://bscscan.com/']
+                            }]
+                        });
+                        setTimeout(connectWallet, 1000);
+                    } catch (addError) {
+                        showStatus('❌ Failed to add BSC network: ' + addError.message, 'error');
+                    }
+                }
+            }
+        }
+
+        async function updateBalances() {
+            if (!account) return;
+
+            try {
+                // Get CannaTokenV2 balance
+                cannaBalance = await cannaContract.balanceOf(account, TOKEN_ID);
+                document.getElementById('cannaBalance').textContent = formatBalance(cannaBalance);
+
+                // Get wCANNA balance
+                wcannaBalance = await wrappedContract.balanceOf(account);
+                document.getElementById('wcannaBalance').textContent = formatBalance(wcannaBalance);
+
+                console.log('CannaTokenV2 balance:', ethers.utils.formatEther(cannaBalance));
+                console.log('wCANNA balance:', ethers.utils.formatEther(wcannaBalance));
+
+            } catch (error) {
+                console.error('Balance fetch error:', error);
+                showStatus('⚠️ Failed to fetch balances: ' + error.message, 'error');
+            }
+        }
+
+        async function wrapTokens() {
+            const amount = document.getElementById('amountInput').value;
+            if (!amount || parseFloat(amount) <= 0) {
+                showStatus('⚠️ Please enter a valid amount', 'error');
+                return;
+            }
+
+            const wrapBtn = document.getElementById('wrapBtn');
+            wrapBtn.disabled = true;
+
+            try {
+                showStatus('⏳ Wrapping tokens... Please confirm in MetaMask', 'loading');
+
+                const amountWei = ethers.utils.parseEther(amount);
+
+                // Check if authorized
+                const isAuth = await wrappedContract.isAuthorized();
+                if (!isAuth) {
+                    showStatus('❌ WrappedCannaV2 is not authorized as operator!', 'error');
+                    wrapBtn.disabled = false;
+                    return;
+                }
+
+                // Execute wrap
+                const tx = await wrappedContract.wrap(amountWei);
+                showStatus('⏳ Transaction sent! Waiting for confirmation...', 'loading');
+
+                await tx.wait();
+
+                showStatus(`✅ Successfully wrapped ${amount} tokens!`, 'success');
+                document.getElementById('amountInput').value = '';
+                await updateBalances();
+
+            } catch (error) {
+                console.error('Wrap error:', error);
+                let errorMsg = error.message;
+                if (error.data?.message) {
+                    errorMsg = error.data.message;
+                } else if (error.reason) {
+                    errorMsg = error.reason;
+                }
+                showStatus('❌ Wrap failed: ' + errorMsg, 'error');
+            } finally {
+                wrapBtn.disabled = false;
+            }
+        }
+
+        async function unwrapTokens() {
+            const amount = document.getElementById('amountInput').value;
+            if (!amount || parseFloat(amount) <= 0) {
+                showStatus('⚠️ Please enter a valid amount', 'error');
+                return;
+            }
+
+            const unwrapBtn = document.getElementById('unwrapBtn');
+            unwrapBtn.disabled = true;
+
+            try {
+                showStatus('⏳ Unwrapping tokens... Please confirm in MetaMask', 'loading');
+
+                const amountWei = ethers.utils.parseEther(amount);
+
+                // Execute unwrap
+                const tx = await wrappedContract.unwrap(amountWei);
+                showStatus('⏳ Transaction sent! Waiting for confirmation...', 'loading');
+
+                await tx.wait();
+
+                showStatus(`✅ Successfully unwrapped ${amount} tokens!`, 'success');
+                document.getElementById('amountInput').value = '';
+                await updateBalances();
+
+            } catch (error) {
+                console.error('Unwrap error:', error);
+                let errorMsg = error.message;
+                if (error.data?.message) {
+                    errorMsg = error.data.message;
+                } else if (error.reason) {
+                    errorMsg = error.reason;
+                }
+                showStatus('❌ Unwrap failed: ' + errorMsg, 'error');
+            } finally {
+                unwrapBtn.disabled = false;
+            }
+        }
+
+        function setMaxWrap() {
+            const maxAmount = ethers.utils.formatEther(cannaBalance);
+            document.getElementById('amountInput').value = maxAmount;
+        }
+
+        function formatBalance(balanceWei) {
+            const balance = ethers.utils.formatEther(balanceWei);
+            const num = parseFloat(balance);
+
+            if (num >= 1000000) {
+                return (num / 1000000).toFixed(2) + 'M';
+            } else if (num >= 1000) {
+                return (num / 1000).toFixed(2) + 'K';
+            } else if (num >= 1) {
+                return num.toFixed(2);
+            } else if (num > 0) {
+                return num.toFixed(6);
+            } else {
+                return '0';
+            }
+        }
+
+        function showStatus(message, type) {
+            const statusEl = document.getElementById('status');
+            statusEl.textContent = message;
+            statusEl.className = 'status ' + type;
+
+            if (type === 'success') {
+                setTimeout(() => {
+                    statusEl.className = 'status';
+                }, 5000);
+            }
+        }
+
+        function copyAddress(address) {
+            navigator.clipboard.writeText(address);
+            showStatus('📋 Address copied to clipboard!', 'success');
+        }
+
+        // Auto-connect if already connected
+        window.addEventListener('load', async () => {
+            if (typeof window.ethereum !== 'undefined') {
+                const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+                if (accounts.length > 0) {
+                    connectWallet();
+                }
+            }
+        });
+
+        // Handle account changes
+        if (typeof window.ethereum !== 'undefined') {
+            window.ethereum.on('accountsChanged', (accounts) => {
+                if (accounts.length === 0) {
+                    location.reload();
+                } else {
+                    connectWallet();
+                }
+            });
+
+            window.ethereum.on('chainChanged', () => {
+                location.reload();
+            });
+        }
+    </script>
+</body>
+
+</html>Ԫ"(3750284766016bb5c0e9aa831d46f3a9e6f8ddb329file:///c:/Users/Janus/cannatoken/cannatoken/wrapper.html:file:///c:/Users/Janus

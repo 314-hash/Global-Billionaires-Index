@@ -1,0 +1,53 @@
+É:root {
+  /* Colors */
+  --color-bg-primary: #030305;
+  --color-bg-secondary: #0a0a12;
+  --color-bg-tertiary: #14141f;
+
+  --color-accent-cyan: #00f0ff;
+  --color-accent-purple: #bd00ff;
+  --color-accent-teal: #00ffa3;
+
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a0a0b0;
+  --color-text-tertiary: #505060;
+
+  /* Spacing */
+  --space-unit: 8px;
+  --container-width: 1200px;
+  --header-height: 80px;
+
+  /* Z-Index */
+  --z-background: -1;
+  --z-content: 10;
+  --z-header: 100;
+  --z-overlay: 1000;
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-bg-tertiary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
+}
+É*cascade08"(451ef9bff17f1e842575f8a4116d19212b61d1a52Gfile:///c:/Users/Janus/DYNAMIC/dynamic-landing/src/styles/variables.css:file:///c:/Users/Janus

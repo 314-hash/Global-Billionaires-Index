@@ -1,0 +1,7 @@
+# Task List
+
+- [ ] Explore project structure and identify contracts
+- [ ] Check for existing Hardhat configuration
+- [ ] Create `hardhat.config.js` if missing
+- [ ] Create deployment script
+- [ ] Verify script logic

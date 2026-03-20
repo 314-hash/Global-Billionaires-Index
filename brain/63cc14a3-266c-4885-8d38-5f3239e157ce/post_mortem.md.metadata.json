@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_OTHER",
+  "summary": "Post-mortem analysis of the security incident, explaining the root cause (hardcoded key), attack vector (git history), and prevention measures.",
+  "updatedAt": "2025-12-11T05:04:28.972693800Z"
+}

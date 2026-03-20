@@ -1,0 +1,30 @@
+# Add Ezigif Animation to Hero Background
+
+## Goal Description
+The user wants to use a sequence of 140 PNG frames (`ezgif-frame-001.png` to `ezgif-frame-140.png`) as the background for the Hero section. This will replace any existing static or video background in that specific area.
+
+## User Review Required
+> [!WARNING]
+> **Performance Impact**: The 140 frames total approximately ~140MB. Loading this high-quality sequence on the web might cause significant loading times or high memory usage on client devices. I will implement a basic frame cycler, but for production, these should ideally be converted to a video format (WebM/MP4). I am proceeding with the raw frames as requested.
+
+## Proposed Changes
+
+### `janus-systems`
+
+#### [MODIFY] [HeroSection.tsx](file:///c:/Users/Janus/extro/janus-systems/src/components/HeroSection.tsx)
+- Implement a frame animation loop using `requestAnimationFrame`.
+- Load frames from `/hero-frames/ezgif-frame-{ooo}.png`.
+- Position the animation container as `absolute inset-0 -z-10` to serve as the background.
+- Ensure the frames cover the container (`object-cover`).
+
+#### [MODIFY] [App.tsx](file:///c:/Users/Janus/extro/janus-systems/src/App.tsx)
+- Remove or comment out the global `<video>` background if it interferes with the Hero section's new background (or just leave it if the Hero section covers it completely, but removing it might save performance since we are loading 140MB of images).
+- *Decision*: I will remove the global video background to prioritize the user's new hero background and save resources.
+
+## Verification Plan
+
+### Manual Verification
+- **Browser Check**: Open the served application.
+- **Visuals**: Verify the Hero section background is animating through the frames.
+- **Loop**: Ensure the animation loops smoothly from 140 back to 1.
+- **Console**: Check for any 404 errors regarding image paths.

@@ -1,0 +1,14 @@
+# Security Incident Response
+
+- [ ] **Identify Scope of Breach** <!-- id: 0 -->
+    - [ ] Determine which account was compromised (Wallet, GitHub, Email, etc.)
+    - [ ] Assess if local machine access was gained
+- [ ] **Immediate Containment** <!-- id: 1 -->
+    - [ ] Rotate secrets found in `.env` (Private Keys, API Keys)
+    - [ ] Ensure `.env` is in `.gitignore`
+- [ ] **Codebase Security Audit** <!-- id: 2 -->
+    - [ ] Scan for hardcoded secrets in source files
+    - [ ] Review recent file modifications for suspicious code/backdoors
+- [ ] **Verification** <!-- id: 3 -->
+    - [ ] Confirm all secrets are rotated
+    - [ ] Verify clean git status

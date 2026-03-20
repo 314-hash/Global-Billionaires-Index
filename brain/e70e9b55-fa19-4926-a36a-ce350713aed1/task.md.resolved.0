@@ -1,0 +1,7 @@
+# Task: Expand Hero Section to Landing Page
+
+- [ ] Research current landing page and hero section implementation <!-- id: 0 -->
+- [ ] Create implementation plan <!-- id: 1 -->
+- [ ] Refactor HeroSection to be full screen <!-- id: 2 -->
+- [ ] Update Landing Page to only show HeroSection or equivalent <!-- id: 3 -->
+- [ ] Verify changes <!-- id: 4 -->

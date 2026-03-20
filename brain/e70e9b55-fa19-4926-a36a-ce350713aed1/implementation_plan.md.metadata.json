@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Expand hero frames to full hero section and make it the landing page.\n- Move `FrameAnimation` to full screen background in `HeroSection.tsx`.\n- Update `Index.tsx` to only show `HeroSection`.",
+  "updatedAt": "2026-01-28T14:06:45.704168600Z"
+}

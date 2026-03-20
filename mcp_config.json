@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "stitch": {
+      "serverUrl": "https://stitch.googleapis.com/mcp",
+      "headers": {
+        "X-Goog-Api-Key": "AQ.Ab8RN6JZtZ3-uirTafS_X3qaJX0pP-cbMTu5Ky0GWtC98eIyXg"
+      }
+    },
+    "pencil": {
+      "command": "c:\\Users\\Janus\\.antigravity\\extensions\\highagency.pencildev-0.6.33-universal\\out\\mcp-server-windows-x64.exe",
+      "args": [
+        "--app",
+        "antigravity"
+      ],
+      "env": {}
+    }
+  }
+}
