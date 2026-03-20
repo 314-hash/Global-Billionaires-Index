@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/Top200Billionaires/index.html"
+    }
+  ]
+}
